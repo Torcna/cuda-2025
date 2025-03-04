@@ -464,6 +464,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |-----|----|------|----|
 |**FAST**|**FAST**|**0.1682**|**-**|
 |**REF**|**REF**|**0.8370**|**-**|
+|3822B1FI1|kurakin_matvey|TOO SLOW|-|
 
 ## 2_gelu_cuda (134217728 elements)
 |Group|Name|Result|Rank|
@@ -506,4 +507,11 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |**REF**|**REF**|**0.3768**|**-**|
 
 # Tasks Done
+## 3822B1FI1
+|Group|Name|Passed|Score|
+|-----|----|------|-----|
+|3822B1FI1|kurakin_matvey|0/9|-|
+
+Passed: 0
+
 **Total Passed: 0**
