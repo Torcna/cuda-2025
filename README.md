@@ -463,6 +463,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |Group|Name|Result|Rank|
 |-----|----|------|----|
 |**FAST**|**FAST**|**0.1682**|**-**|
+|3822B1FI1|beskhmelnova_kseniya|0.7623|1|
 |**REF**|**REF**|**0.8370**|**-**|
 |3822B1FI1|kurakin_matvey|TOO SLOW|-|
 
@@ -511,7 +512,8 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 ## 3822B1FI1
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
-|3822B1FI1|kurakin_matvey|1/9|2|
+|3822B1FI1|beskhmelnova_kseniya|1/9|4|
+|3822B1FI1|kurakin_matvey|1/9|4|
 
 Passed: 0
 
