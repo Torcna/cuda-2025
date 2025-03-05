@@ -1,7 +1,7 @@
 #include "gelu_omp.h"
 #include <cmath>
 #include <omp.h>
-#define PI 0.636619f
+#define PI 0.797884f
 
 AlignedVector GeluOMP(const AlignedVector& input) {
 	
