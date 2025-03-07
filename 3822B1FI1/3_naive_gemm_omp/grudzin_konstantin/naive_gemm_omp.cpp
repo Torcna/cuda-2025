@@ -5,8 +5,8 @@ std::vector<float> NaiveGemmOMP(const std::vector<float>& a,
                                 int n) {
     std::vector<float> dest(n * n, 0.0f);
     
+    std::vector<float> bT(n*n);
     #pragma omp parallel for
-    std::vector<float> bT(n * n);
     for (int i = 0; i < n; ++i) {
         for (int j = 0; j < n; ++j) {
             bT[j * n + i] = b[i * n + j];
