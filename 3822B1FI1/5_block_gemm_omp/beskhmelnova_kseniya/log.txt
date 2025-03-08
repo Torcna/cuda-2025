@@ -1,0 +1,11 @@
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/5_block_gemm_omp/beskhmelnova_kseniya/block_gemm_omp.cpp: In function ‘std::vector<float> BlockGemmOMP(const std::vector<float>&, const std::vector<float>&, int)’:
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/5_block_gemm_omp/beskhmelnova_kseniya/block_gemm_omp.cpp:12:33: error: invalid conversion from ‘const float*’ to ‘float*’ [-fpermissive]
+   12 |     float* __restrict A = a.data();
+      |                           ~~~~~~^~
+      |                                 |
+      |                                 const float*
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/5_block_gemm_omp/beskhmelnova_kseniya/block_gemm_omp.cpp:13:33: error: invalid conversion from ‘const float*’ to ‘float*’ [-fpermissive]
+   13 |     float* __restrict B = b.data();
+      |                           ~~~~~~^~
+      |                                 |
+      |                                 const float*
