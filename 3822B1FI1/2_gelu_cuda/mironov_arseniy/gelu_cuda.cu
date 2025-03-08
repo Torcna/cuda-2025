@@ -2,7 +2,7 @@
 #include <cmath>
 #include <cuda_runtime.h>
 
-#define PI 0.636619f
+#define PI 0.797884f
 #define BLOCK_SIZE 256
 
 __global__ void GeluKernel(const float* in, float* out, int size) {
