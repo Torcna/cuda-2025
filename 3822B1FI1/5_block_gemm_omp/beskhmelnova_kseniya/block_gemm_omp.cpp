@@ -1,7 +1,6 @@
 #include "block_gemm_omp.h"
 #include <immintrin.h>
 #include <omp.h>
-
 std::vector<float> BlockGemmOMP(const std::vector<float>& a,
 	const std::vector<float>& b,
 	int n) {
@@ -29,4 +28,3 @@ std::vector<float> BlockGemmOMP(const std::vector<float>& a,
 	}
 	return result;
 }
-
