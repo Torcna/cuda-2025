@@ -1,4 +1,4 @@
-#include "naive_gemm_cuda.h"
+#include "block_gemm_cuda.h"
 #include <cuda_runtime.h>
 #define CUDA_BLOCK_SIZE 16
 
@@ -31,7 +31,7 @@ __global__ void MultKernel(const float* in1, const float* in2, float* out, int n
     }
 }
 
-__host__ std::vector<float> NaiveGemmCUDA(const std::vector<float>& a,
+__host__ std::vector<float> BlockGemmCUDA(const std::vector<float>& a,
                                  const std::vector<float>& b,
                                  int n) {
     int memory = n * n * sizeof(float);
@@ -57,21 +57,4 @@ __host__ std::vector<float> NaiveGemmCUDA(const std::vector<float>& a,
     cudaFree(out);
 
     return result;
-}
- 
-#include <chrono>
-#include <iostream>
-using namespace std;
-
-int main() {
-    int n = 128;
-	std::vector<float> in1(n*n, 1.1), in2(n*n, 1.1);  
-
-	auto start = std::chrono::high_resolution_clock::now();
-	std::vector<float> result = NaiveGemmCUDA(in1, in2, n);
-	auto end = std::chrono::high_resolution_clock::now();
-	std::chrono::duration<float> duration = end - start;
-	std::cout << "TIME: " << duration.count() << std::endl;
-
-	return 0;
 }
