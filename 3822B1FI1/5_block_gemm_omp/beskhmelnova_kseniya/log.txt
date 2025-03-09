@@ -1,5 +1,0 @@
-/usr/bin/ld: /tmp/ccPsb106.o: in function `main':
-main.cpp:(.text.startup+0x122): undefined reference to `BlockGemmOMP(std::vector<float, std::allocator<float> > const&, std::vector<float, std::allocator<float> > const&, int)'
-/usr/bin/ld: main.cpp:(.text.startup+0x373): undefined reference to `BlockGemmOMP(std::vector<float, std::allocator<float> > const&, std::vector<float, std::allocator<float> > const&, int)'
-/usr/bin/ld: main.cpp:(.text.startup+0x3ab): undefined reference to `BlockGemmOMP(std::vector<float, std::allocator<float> > const&, std::vector<float, std::allocator<float> > const&, int)'
-collect2: error: ld returned 1 exit status
