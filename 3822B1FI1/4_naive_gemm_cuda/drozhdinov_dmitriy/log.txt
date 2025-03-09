@@ -1,0 +1,59 @@
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(19): error: namespace "std" has no member "vector"
+  std::vector<float> NaiveGemmCUDA(const std::vector<float>& a,
+       ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(19): error: expected a ";"
+  std::vector<float> NaiveGemmCUDA(const std::vector<float>& a,
+             ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(42): warning #12-D: parsing restarts here after previous syntax error
+    cudaMemcpy(c.data(), device_c, bytes, cudaMemcpyDeviceToHost);
+                                                                 ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(44): error: this declaration has no storage class or type specifier
+    cudaFree(device_a);
+    ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(44): error: declaration is incompatible with "cudaError_t cudaFree(void *)" (declared at line 5547 of /usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_runtime_api.h)
+    cudaFree(device_a);
+    ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(44): error: identifier "device_a" is undefined
+    cudaFree(device_a);
+             ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(45): error: this declaration has no storage class or type specifier
+    cudaFree(device_b);
+    ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(45): error: variable "cudaFree" has already been defined (previous definition at line 44)
+    cudaFree(device_b);
+    ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(45): error: identifier "device_b" is undefined
+    cudaFree(device_b);
+             ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(46): error: this declaration has no storage class or type specifier
+    cudaFree(device_c);
+    ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(46): error: variable "cudaFree" has already been defined (previous definition at line 44)
+    cudaFree(device_c);
+    ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(46): error: identifier "device_c" is undefined
+    cudaFree(device_c);
+             ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(47): error: expected a declaration
+    return c;
+    ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu(48): error: expected a declaration
+  }
+  ^
+
+13 errors detected in the compilation of "/home/crazyproger/sandbox/cuda-2025/3822B1FI1/4_naive_gemm_cuda/drozhdinov_dmitriy/naive_gemm_cuda.cu".
