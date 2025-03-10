@@ -14,7 +14,6 @@ std::vector<float> BlockGemmOMP(const std::vector<float>& a,
 				for (int block_i = 0; block_i < block_size; ++block_i) {
 					for (int block_j = 0; block_j < block_size; ++block_j) {
 						float elem = 0.0f;
-						#pragma omp simd
 						for (int block_k = 0; block_k < block_size; ++block_k) {
 							elem += a[(i * block_size + block_i) * n + (k * block_size + block_k)] * b[(k * block_size + block_k) * n + (j * block_size + block_j)];
 						}
