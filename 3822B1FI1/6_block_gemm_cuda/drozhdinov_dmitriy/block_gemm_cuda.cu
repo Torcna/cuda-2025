@@ -30,12 +30,31 @@ __global__ void kernel(const float* a, const float* b, float* const c, const int
 		}
 		__syncthreads();
 	}
-	// row < n col < n ???
+	if (row < n && col < n) {
+        c[row * n + col] = elem;
+    }
 }
 
 
 std::vector<float> BlockGemmCUDA(const std::vector<float>& a,
                                  const std::vector<float>& b,
                                  int n) {
-    // Place your implementation here
+    std::vector<float> c(n * n, 0.0f);
+	size_t bytes = n * n * sizeof(float);
+	float* device_a;
+	float* device_b;
+	float* device_c;
+	cudaMalloc(&device_a, bytes);
+	cudaMalloc(&device_b, bytes);
+	cudaMalloc(&device_c, bytes);
+	cudaMemcpy(device_a, a.data(), bytes, cudaMemcpyHostToDevice);
+	cudaMemcpy(device_b, b.data(), bytes, cudaMemcpyHostToDevice);
+	dim3 dimBlock(block_size, block_size);
+	dim3 dimGrid((n + block_size - 1) / block_size, (n + block_size - 1) / block_size);
+	kernel<<<dimGrid, dimBlock>>>(device_a, device_b, device_c, n, block_size);
+	cudaMemcpy(c.data(), device_c, bytes, cudaMemcpyDeviceToHost);
+	cudaFree(device_a);
+	cudaFree(device_b);
+	cudaFree(device_c);
+	return c;
 }
