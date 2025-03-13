@@ -463,32 +463,59 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |Group|Name|Result|Rank|
 |-----|----|------|----|
 |**FAST**|**FAST**|**0.1682**|**-**|
+|3822B1FI1|kurakin_matvey|0.4449|5|
+|3822B1FI1|mironov_arseniy|0.7293|2|
+|3822B1FI1|grudzin_konstantin|0.7548|4|
+|3822B1FI1|beskhmelnova_kseniya|0.7623|1|
+|3822B1FI1|drozhdinov_dmitriy|0.7710|3|
 |**REF**|**REF**|**0.8370**|**-**|
+|3822B1FI1|chistov_alexey|TEST FAILED|-|
+|3822B1FI1|baranov_aleksey|BUILD FAILED|-|
 
 ## 2_gelu_cuda (134217728 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
 |**REF**|**REF**|**0.2648**|**-**|
+|3822B1FI1|drozhdinov_dmitriy|0.3412|4|
+|3822B1FI1|mironov_arseniy|0.3590|3|
+|3822B1FI1|beskhmelnova_kseniya|0.4201|2|
+|3822B1FI1|kurakin_matvey|0.4446|1|
 
 ## 3_naive_gemm_omp (1024 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|grudzin_konstantin|0.1833|2|
+|3822B1FI1|mironov_arseniy|0.2920|3|
+|3822B1FI1|beskhmelnova_kseniya|0.6873|1|
+|3822B1FI1|drozhdinov_dmitriy|0.7571|4|
 |**REF**|**REF**|**0.8283**|**-**|
+|3822B1FI1|kurakin_matvey|BUILD FAILED|-|
 
 ## 4_naive_gemm_cuda (4096 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|mironov_arseniy|0.1620|3|
+|3822B1FI1|beskhmelnova_kseniya|0.2043|2|
+|3822B1FI1|drozhdinov_dmitriy|0.2398|4|
 |**REF**|**REF**|**0.3438**|**-**|
+|3822B1FI1|kurakin_matvey|0.5978|1|
 
 ## 5_block_gemm_omp (1024 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|mironov_arseniy|0.0720|2|
 |**REF**|**REF**|**0.1575**|**-**|
+|3822B1FI1|kurakin_matvey|0.1709|1|
+|3822B1FI1|beskhmelnova_kseniya|0.2720|3|
+|3822B1FI1|drozhdinov_dmitriy|0.3107|4|
 
 ## 6_block_gemm_cuda (4096 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
 |**REF**|**REF**|**0.1464**|**-**|
+|3822B1FI1|mironov_arseniy|0.1489|1|
+|3822B1FI1|beskhmelnova_kseniya|0.3565|2|
+|3822B1FI1|drozhdinov_dmitriy|BUILD FAILED|-|
 
 ## 7_gemm_cublas (4096 elements)
 |Group|Name|Result|Rank|
@@ -506,4 +533,17 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |**REF**|**REF**|**0.3768**|**-**|
 
 # Tasks Done
+## 3822B1FI1
+|Group|Name|Passed|Score|
+|-----|----|------|-----|
+|3822B1FI1|baranov_aleksey|0/9|0|
+|3822B1FI1|beskhmelnova_kseniya|6/9|68|
+|3822B1FI1|chistov_alexey|0/9|0|
+|3822B1FI1|drozhdinov_dmitriy|5/9|44|
+|3822B1FI1|grudzin_konstantin|2/9|22|
+|3822B1FI1|kurakin_matvey|4/9|45|
+|3822B1FI1|mironov_arseniy|6/9|73|
+
+Passed: 0
+
 **Total Passed: 0**
