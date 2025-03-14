@@ -1,0 +1,13 @@
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/6_block_gemm_cuda/drozhdinov_dmitriy/block_gemm_cuda.cu(14): error: identifier "n" is undefined
+   for (int k = 0; k < n; k+= block_size) {
+                       ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/6_block_gemm_cuda/drozhdinov_dmitriy/block_gemm_cuda.cu(33): error: identifier "n" is undefined
+   if (row < n && col < n) {
+             ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/6_block_gemm_cuda/drozhdinov_dmitriy/block_gemm_cuda.cu(54): error: too many arguments in function call
+   kernel<<<dimGrid, dimBlock>>>(device_a, device_b, device_c, n, block_size);
+                                                                  ^
+
+3 errors detected in the compilation of "/home/crazyproger/sandbox/cuda-2025/3822B1FI1/6_block_gemm_cuda/drozhdinov_dmitriy/block_gemm_cuda.cu".
