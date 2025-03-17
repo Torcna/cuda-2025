@@ -1,10 +1,11 @@
 #include "gelu_cuda.h"
 
 __global__ void Gelu(float *input, float *output, int size) {
-	int i = blockIdx.x * blockDim.x + threadIdx.x;
+  int i = blockIdx.x * blockDim.x + threadIdx.x;
   if(i < size){
-    float x = input[i]; 
-	  output[i] = 0.5 * x * (1.0 + std::tanh(std::sqrt(2.0 / 3.1415) * (x + 0.044715 * std::pow(x, 3))));
+    float x = input[i];
+    float in_tanh = 0.797885f * (x + 0.044715f * x * x * x);
+    output[i] = 0.5f * x * (1.0f + std::tanh(in_tanh));
   }
 }
 
