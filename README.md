@@ -481,6 +481,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|grudzin_konstantin|0.3438|5|
 |3822B1FI1|mironov_arseniy|0.3590|3|
 |3822B1FI1|beskhmelnova_kseniya|0.4201|2|
+|3822B1FI1|baranov_aleksey|BUILD FAILED|-|
 
 ## 3_naive_gemm_omp (1024 elements)
 |Group|Name|Result|Rank|
@@ -490,6 +491,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|mironov_arseniy|0.2920|3|
 |3822B1FI1|beskhmelnova_kseniya|0.6873|1|
 |3822B1FI1|chistov_alexey|0.7405|5|
+|3822B1FI1|baranov_aleksey|0.7490|7|
 |3822B1FI1|drozhdinov_dmitriy|0.7571|4|
 |**REF**|**REF**|**0.8283**|**-**|
 
@@ -541,10 +543,10 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 ## 3822B1FI1
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
-|3822B1FI1|baranov_aleksey|0/9|0|
+|3822B1FI1|baranov_aleksey|1/9|3|
 |3822B1FI1|beskhmelnova_kseniya|6/9|61|
 |3822B1FI1|chistov_alexey|3/9|24|
-|3822B1FI1|drozhdinov_dmitriy|5/9|37|
+|3822B1FI1|drozhdinov_dmitriy|5/9|36|
 |3822B1FI1|grudzin_konstantin|5/9|43|
 |3822B1FI1|kurakin_matvey|5/9|55|
 |3822B1FI1|mironov_arseniy|6/9|68|

@@ -1,0 +1,16 @@
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/2_gelu_cuda/baranov_aleksey/gelu_cuda.cu(19): error: identifier "size" is undefined
+    std::vector<float> output(size);
+                              ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/2_gelu_cuda/baranov_aleksey/gelu_cuda.cu(24): error: no instance of overloaded function "cudaMalloc" matches the argument list
+            argument types are: (float *, const size_t)
+    cudaMalloc(gpu_input, size_for_buf_in_bytes);
+    ^
+/usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_runtime_api.h(5376): note #3326-D: function "cudaMalloc(void **, size_t)" does not match because argument #1 does not match parameter
+  extern __attribute__((host)) __attribute__((cudart_builtin)) cudaError_t cudaMalloc(void **devPtr, size_t size);
+                                                                           ^
+/usr/local/cuda/bin/../targets/x86_64-linux/include/cuda_runtime.h(762): note #3327-D: candidate function template "cudaMalloc(T **, size_t)" failed deduction
+  static __inline__ __attribute__((host)) cudaError_t cudaMalloc(
+                                                      ^
+
+2 errors detected in the compilation of "/home/crazyproger/sandbox/cuda-2025/3822B1FI1/2_gelu_cuda/baranov_aleksey/gelu_cuda.cu".
