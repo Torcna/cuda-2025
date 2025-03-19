@@ -476,6 +476,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |Group|Name|Result|Rank|
 |-----|----|------|----|
 |**REF**|**REF**|**0.2648**|**-**|
+|3822B1FI1|chistov_alexey|0.2780|6|
 |3822B1FI1|kurakin_matvey|0.2833|1|
 |3822B1FI1|drozhdinov_dmitriy|0.3412|4|
 |3822B1FI1|grudzin_konstantin|0.3438|5|
@@ -500,6 +501,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |-----|----|------|----|
 |3822B1FI1|mironov_arseniy|0.1620|3|
 |3822B1FI1|grudzin_konstantin|0.1907|5|
+|3822B1FI1|chistov_alexey|0.2019|6|
 |3822B1FI1|beskhmelnova_kseniya|0.2043|2|
 |3822B1FI1|drozhdinov_dmitriy|0.2398|4|
 |**REF**|**REF**|**0.3438**|**-**|
@@ -521,6 +523,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |-----|----|------|----|
 |**REF**|**REF**|**0.1464**|**-**|
 |3822B1FI1|mironov_arseniy|0.1489|1|
+|3822B1FI1|chistov_alexey|0.1523|3|
 |3822B1FI1|beskhmelnova_kseniya|0.3565|2|
 |3822B1FI1|drozhdinov_dmitriy|BUILD FAILED|-|
 
@@ -545,12 +548,12 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
 |3822B1FI1|baranov_aleksey|1/9|3|
-|3822B1FI1|beskhmelnova_kseniya|6/9|61|
-|3822B1FI1|chistov_alexey|3/9|24|
-|3822B1FI1|drozhdinov_dmitriy|5/9|36|
-|3822B1FI1|grudzin_konstantin|5/9|43|
-|3822B1FI1|kurakin_matvey|5/9|55|
-|3822B1FI1|mironov_arseniy|6/9|68|
+|3822B1FI1|beskhmelnova_kseniya|6/9|58|
+|3822B1FI1|chistov_alexey|6/9|51|
+|3822B1FI1|drozhdinov_dmitriy|5/9|34|
+|3822B1FI1|grudzin_konstantin|5/9|42|
+|3822B1FI1|kurakin_matvey|5/9|53|
+|3822B1FI1|mironov_arseniy|6/9|67|
 
 Passed: 0
 
