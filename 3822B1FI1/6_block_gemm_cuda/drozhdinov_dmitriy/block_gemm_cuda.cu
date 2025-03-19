@@ -5,7 +5,7 @@
 
 const int block_size = 16;
 
-__global__ void kernel(const float* a, const float* b, float* const c, const int size) {
+__global__ void kernel(const float* a, const float* b, float* const c, int n) {
 	__shared__ float sa[16][16];
 	__shared__ float sb[16][16];
 	int row = blockIdx.y * block_size + threadIdx.y;
@@ -51,7 +51,7 @@ std::vector<float> BlockGemmCUDA(const std::vector<float>& a,
 	cudaMemcpy(device_b, b.data(), bytes, cudaMemcpyHostToDevice);
 	dim3 dimBlock(block_size, block_size);
 	dim3 dimGrid((n + block_size - 1) / block_size, (n + block_size - 1) / block_size);
-	kernel<<<dimGrid, dimBlock>>>(device_a, device_b, device_c, n, block_size);
+	kernel<<<dimGrid, dimBlock>>>(device_a, device_b, device_c, n);
 	cudaMemcpy(c.data(), device_c, bytes, cudaMemcpyDeviceToHost);
 	cudaFree(device_a);
 	cudaFree(device_b);
