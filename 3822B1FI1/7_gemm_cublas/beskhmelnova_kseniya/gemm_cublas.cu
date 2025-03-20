@@ -7,7 +7,7 @@
 std::vector<float> GemmCUBLAS(const std::vector<float>& a,
 	const std::vector<float>& b,
 	int n) {
-	size_t size = n * n * sizeof(float);
+	int size = n * n * sizeof(float);
 	std::vector<float> c(n * n, 0.0f);
 
 	float* d_A, * d_B, * d_C;
@@ -33,6 +33,12 @@ std::vector<float> GemmCUBLAS(const std::vector<float>& a,
              d_C, n);
 
 	cudaMemcpy(c.data(), d_C, size, cudaMemcpyDeviceToHost);
+
+	for (int i = 0; i < n; i++) {
+		for (int j = i + 1; j < n; j++) {
+			std::swap(c[i * n + j], c[j * n + i]);
+		}
+	}
 
 	cudaFree(d_A);
 	cudaFree(d_B);
