@@ -544,8 +544,8 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 ## 9_gelu_ocl (134217728 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|mironov_arseniy|0.3257|1|
 |**REF**|**REF**|**0.3768**|**-**|
-|3822B1FI1|mironov_arseniy|TOO SLOW|-|
 
 # Tasks Done
 ## 3822B1FI1
@@ -557,7 +557,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|drozhdinov_dmitriy|6/9|42|
 |3822B1FI1|grudzin_konstantin|5/9|42|
 |3822B1FI1|kurakin_matvey|7/9|72|
-|3822B1FI1|mironov_arseniy|7/9|81|
+|3822B1FI1|mironov_arseniy|8/9|95|
 
 Passed: 0
 
