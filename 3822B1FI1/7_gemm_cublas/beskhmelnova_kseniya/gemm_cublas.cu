@@ -9,10 +9,11 @@ std::vector<float> GemmCUBLAS(const std::vector<float>& a,
     int size = n * n * sizeof(float);
     std::vector<float> c(n * n);
 
-    float *d_A, *d_B, *d_C;
+    float *d_A, *d_B, *d_C, *d_C_transposed;
     cudaMalloc(&d_A, size);
     cudaMalloc(&d_B, size);
     cudaMalloc(&d_C, size);
+    cudaMalloc(&d_C_transposed, size);
 
     cublasHandle_t handle;
     cublasCreate(&handle);
@@ -24,14 +25,15 @@ std::vector<float> GemmCUBLAS(const std::vector<float>& a,
     const float beta = 0.0f;
 
     cublasSgemm(handle, CUBLAS_OP_T, CUBLAS_OP_T, n, n, n, &alpha, d_A, n, d_B, n, &beta, d_C, n);
-
-    cublasGetMatrix(n, n, sizeof(float), d_C, n, c.data(), n);
+    cublasSgeam(handle, CUBLAS_OP_T, CUBLAS_OP_N, n, n, &alpha, d_C, n, &beta, nullptr, n, d_C_transposed, n);
+    cublasGetMatrix(n, n, sizeof(float), d_C_transposed, n, c.data(), n);
 
     cublasDestroy(handle);
 
     cudaFree(d_A);
     cudaFree(d_B);
     cudaFree(d_C);
+    cudaFree(d_C_transposed);
 
     return c;
 }
