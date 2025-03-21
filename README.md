@@ -545,6 +545,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |Group|Name|Result|Rank|
 |-----|----|------|----|
 |**REF**|**REF**|**0.3768**|**-**|
+|3822B1FI1|mironov_arseniy|TOO SLOW|-|
 
 # Tasks Done
 ## 3822B1FI1
