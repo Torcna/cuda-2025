@@ -7,7 +7,7 @@ std::vector<float> GemmCUBLAS(const std::vector<float>& a,
                               const std::vector<float>& b,
                               int n) {
     int size = n * n * sizeof(float);
-    std::vector<float> ñ(n * n);
+    std::vector<float> c(n * n);
 
     float *d_A, *d_B, *d_C;
     cudaMalloc(&d_A, size);
@@ -25,7 +25,7 @@ std::vector<float> GemmCUBLAS(const std::vector<float>& a,
 
     cublasSgemm(handle, CUBLAS_OP_T, CUBLAS_OP_T, n, n, n, &alpha, d_A, n, d_B, n, &beta, d_C, n);
 
-    cublasGetMatrix(n, n, sizeof(float), d_C, n, ñ.data(), n);
+    cublasGetMatrix(n, n, sizeof(float), d_C, n, c.data(), n);
 
     cublasDestroy(handle);
 
@@ -33,5 +33,5 @@ std::vector<float> GemmCUBLAS(const std::vector<float>& a,
     cudaFree(d_B);
     cudaFree(d_C);
 
-    return ñ;
+    return c;
 }
