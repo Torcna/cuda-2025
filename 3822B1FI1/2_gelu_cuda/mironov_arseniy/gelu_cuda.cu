@@ -45,23 +45,3 @@ __host__ std::vector<float> GeluCUDA(const std::vector<float>& input) {
 
     return result;
 }
-
-#include <iostream>
-#include <chrono>
-
-int main() {
-
-	std::vector<float> input(134217728, 1.0);
-
-	auto start = std::chrono::high_resolution_clock::now();
-	std::vector<float> result = GeluCUDA(input);
-	auto end = std::chrono::high_resolution_clock::now();
-	std::chrono::duration<float> duration = end - start;
-	std::cout << "TIME: " << duration.count() << std::endl;
-
-    for(int i = 0; i < 4; ++i){
-        std::cout << result[i] << " ";
-    }
-    std::cout<<'\n';
-	return 0;
-}
