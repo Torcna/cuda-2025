@@ -531,7 +531,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |Group|Name|Result|Rank|
 |-----|----|------|----|
 |**REF**|**REF**|**0.0718**|**-**|
-|3822B1FI1|mironov_arseniy|0.1985|1|
+|3822B1FI1|mironov_arseniy|0.0723|1|
 |3822B1FI1|beskhmelnova_kseniya|TEST FAILED|-|
 
 ## 8_fft_cufft (131072 elements)
