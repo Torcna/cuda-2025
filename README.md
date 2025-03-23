@@ -480,8 +480,8 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|kurakin_matvey|0.2833|1|
 |3822B1FI1|drozhdinov_dmitriy|0.3412|4|
 |3822B1FI1|grudzin_konstantin|0.3438|5|
-|3822B1FI1|mironov_arseniy|0.3590|3|
 |3822B1FI1|beskhmelnova_kseniya|0.4201|2|
+|3822B1FI1|mironov_arseniy|TEST FAILED|3|
 |3822B1FI1|baranov_aleksey|BUILD FAILED|-|
 
 ## 3_naive_gemm_omp (1024 elements)
@@ -523,38 +523,50 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |-----|----|------|----|
 |**REF**|**REF**|**0.1464**|**-**|
 |3822B1FI1|mironov_arseniy|0.1489|1|
+|3822B1FI1|grudzin_konstantin|0.1489|6|
 |3822B1FI1|chistov_alexey|0.1523|3|
+|3822B1FI1|kurakin_matvey|0.1545|5|
 |3822B1FI1|drozhdinov_dmitriy|0.1555|4|
 |3822B1FI1|beskhmelnova_kseniya|0.3565|2|
 
 ## 7_gemm_cublas (4096 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|mironov_arseniy|0.0690|1|
 |**REF**|**REF**|**0.0718**|**-**|
-|3822B1FI1|beskhmelnova_kseniya|TEST FAILED|-|
+|3822B1FI1|drozhdinov_dmitriy|0.0756|4|
+|3822B1FI1|grudzin_konstantin|0.0788|5|
+|3822B1FI1|beskhmelnova_kseniya|0.0796|3|
+|3822B1FI1|kurakin_matvey|0.0854|2|
 
 ## 8_fft_cufft (131072 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|beskhmelnova_kseniya|0.1645|2|
+|3822B1FI1|drozhdinov_dmitriy|0.1974|1|
 |**REF**|**REF**|**0.2498**|**-**|
+|3822B1FI1|mironov_arseniy|TEST FAILED|-|
+|3822B1FI1|grudzin_konstantin|BUILD FAILED|-|
 
 ## 9_gelu_ocl (134217728 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|mironov_arseniy|0.3257|1|
 |**REF**|**REF**|**0.3768**|**-**|
+|3822B1FI1|beskhmelnova_kseniya|0.5519|2|
 
 # Tasks Done
 ## 3822B1FI1
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
 |3822B1FI1|baranov_aleksey|1/9|3|
-|3822B1FI1|beskhmelnova_kseniya|6/9|57|
-|3822B1FI1|chistov_alexey|6/9|51|
-|3822B1FI1|drozhdinov_dmitriy|6/9|43|
-|3822B1FI1|grudzin_konstantin|5/9|42|
-|3822B1FI1|kurakin_matvey|5/9|53|
-|3822B1FI1|mironov_arseniy|6/9|67|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**90**|
+|3822B1FI1|chistov_alexey|6/9|50|
+|3822B1FI1|drozhdinov_dmitriy|8/9|64|
+|3822B1FI1|grudzin_konstantin|7/9|58|
+|3822B1FI1|kurakin_matvey|7/9|69|
+|3822B1FI1|mironov_arseniy|7/9|92|
 
-Passed: 0
+Passed: 1
 
-**Total Passed: 0**
+**Total Passed: 1**
