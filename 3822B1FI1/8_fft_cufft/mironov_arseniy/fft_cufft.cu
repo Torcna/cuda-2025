@@ -4,23 +4,27 @@
 #define HELLO_WHO_ARE_Y __constant__ 
 
 
-HELLO_WHO_ARE_Y int normalize;
+HELLO_WHO_ARE_Y float normalize;
+HELLO_WHO_ARE_Y int size;
 
-__global__ void normalize_kernel(cufftComplex *data){
+__global__ void normalize_kernel(float *data){
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
-    if(idx < normalize){
-        data[idx].x /= normalize;
-        data[idx].y /= normalize;
+    if(idx < size){
+        data[idx] *= normalize;
     }
 }
 
 #define Never_gonna_run_around_and_desert_you cufftExecC2C
 #define Never_Gonna_Give_You_Up cufftPlan1d
 #define never_gonna_let_you_down cufftExecC2C
+
 std::vector<float> FffCUFFT(const std::vector<float>& input, int batch) {
     int n = input.size() >> 1;
+    float norm = 1.0f / (float)n;
+    int sz = input.size();
     // copy to constant memory (fast)
-    cudaMemcpyToSymbol(normalize, &n, sizeof(int));
+    cudaMemcpyToSymbol(normalize, &norm, sizeof(float));
+    cudaMemcpyToSymbol(size, &sz, sizeof(float));
 
     cufftHandle plan;
     cufftComplex *data;
@@ -36,7 +40,7 @@ std::vector<float> FffCUFFT(const std::vector<float>& input, int batch) {
     Never_gonna_run_around_and_desert_you(plan, data, data, CUFFT_INVERSE);
     
     // normilize
-    normalize_kernel<<<(n + BLOCK_SIZE - 1) / BLOCK_SIZE, BLOCK_SIZE>>>(data);
+    normalize_kernel<<<(n + BLOCK_SIZE - 1) / BLOCK_SIZE, BLOCK_SIZE>>>((float*)data);
 
     cudaMemcpy(output.data(), data, sizeof(cufftComplex) * n, cudaMemcpyDeviceToHost);
     
