@@ -542,10 +542,10 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 ## 8_fft_cufft (131072 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|mironov_arseniy|0.1549|3|
 |3822B1FI1|beskhmelnova_kseniya|0.1645|2|
 |3822B1FI1|drozhdinov_dmitriy|0.1974|1|
 |**REF**|**REF**|**0.2498**|**-**|
-|3822B1FI1|mironov_arseniy|TEST FAILED|-|
 |3822B1FI1|grudzin_konstantin|BUILD FAILED|-|
 
 ## 9_gelu_ocl (134217728 elements)
@@ -560,13 +560,13 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
 |3822B1FI1|baranov_aleksey|1/9|3|
-|3822B1FI1|beskhmelnova_kseniya|**9/9**|**89**|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**88**|
 |3822B1FI1|chistov_alexey|6/9|50|
-|3822B1FI1|drozhdinov_dmitriy|8/9|63|
+|3822B1FI1|drozhdinov_dmitriy|8/9|62|
 |3822B1FI1|grudzin_konstantin|7/9|57|
 |3822B1FI1|kurakin_matvey|7/9|69|
-|3822B1FI1|mironov_arseniy|8/9|97|
+|3822B1FI1|mironov_arseniy|**9/9**|**109**|
 
-Passed: 1
+Passed: 2
 
-**Total Passed: 1**
+**Total Passed: 2**
