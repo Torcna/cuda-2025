@@ -29,7 +29,7 @@ std::vector<float> FffCUFFT(const std::vector<float>& input, int batch) {
     cudaMemcpy(d_data, input.data(), totalFloats * sizeof(float), cudaMemcpyHostToDevice);
 
     // Выполняем прямое преобразование (CUFFT_FORWARD)
-    cufftExecC2C(plan, d_data, d_data, CUFFT_FORWARD)
+    cufftExecC2C(plan, d_data, d_data, CUFFT_FORWARD);
 
     // Выполняем обратное преобразование (CUFFT_INVERSE)
     cufftExecC2C(plan, d_data, d_data, CUFFT_INVERSE);
