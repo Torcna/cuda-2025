@@ -4,13 +4,13 @@
 #define HELLO_WHO_ARE_Y __constant__ 
 
 
-HELLO_WHO_ARE_Y int normalize;
+HELLO_WHO_ARE_Y float normalize;
+HELLO_WHO_ARE_Y int size;
 
-__global__ void normalize_kernel(cufftComplex *data){
+__global__ void normalize_kernel(float *data){
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
-    if(idx < normalize){
-        data[idx].x /= normalize;
-        data[idx].y /= normalize;
+    if(idx < size){
+        data[idx] *= normalize;
     }
 }
 
@@ -18,29 +18,32 @@ __global__ void normalize_kernel(cufftComplex *data){
 #define Never_Gonna_Give_You_Up cufftPlan1d
 #define never_gonna_let_you_down cufftExecC2C
 std::vector<float> FffCUFFT(const std::vector<float>& input, int batch) {
-    int n = input.size() >> 1;
-    // copy to constant memory (fast)
-    cudaMemcpyToSymbol(normalize, &n, sizeof(int));
 
+    
+    int sz = input.size();
+	int n = sz / (2 * batch);
+    float norm = 1.0f / static_cast<float>(n);
+    cudaMemcpyToSymbol(normalize, &norm, sizeof(float));
+    cudaMemcpyToSymbol(size, &sz, sizeof(int));
+
+    
     cufftHandle plan;
-    cufftComplex *data;
-    std::vector<float> output(input.size());
-    
-    // share data
-    cudaMalloc((void**)&data, sizeof(cufftComplex) * n);
-    cudaMemcpy(data, input.data(), sizeof(cufftComplex) * n, cudaMemcpyHostToDevice);
-    
-    // fft
-    Never_Gonna_Give_You_Up(&plan, n, CUFFT_C2C, batch);
+	cufftComplex* data;
+    std::vector<float> output(sz);
+
+	cudaMalloc(&data,  sz * sizeof(float));
+	cudaMemcpy(data, input.data(),  sz * sizeof(float), cudaMemcpyHostToDevice);
+
+	Never_Gonna_Give_You_Up(&plan, n, CUFFT_C2C, batch);
     never_gonna_let_you_down(plan, data, data, CUFFT_FORWARD);
     Never_gonna_run_around_and_desert_you(plan, data, data, CUFFT_INVERSE);
-    
-    // normilize
-    normalize_kernel<<<(n + BLOCK_SIZE - 1) / BLOCK_SIZE, BLOCK_SIZE>>>(data);
 
-    cudaMemcpy(output.data(), data, sizeof(cufftComplex) * n, cudaMemcpyDeviceToHost);
-    
-    cufftDestroy(plan);
-    cudaFree(data);
-    return output;
+	normalize_kernel << <(sz + BLOCK_SIZE - 1) / BLOCK_SIZE, BLOCK_SIZE >> > ((float*)(data));
+
+	cudaMemcpy(output.data(), data,  sz * sizeof(float), cudaMemcpyDeviceToHost);
+
+	cufftDestroy(plan);
+	cudaFree(data);
+
+	return output;
 }
