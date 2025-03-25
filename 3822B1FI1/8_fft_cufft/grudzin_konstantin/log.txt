@@ -1,5 +1,0 @@
-/home/crazyproger/sandbox/cuda-2025/3822B1FI1/8_fft_cufft/grudzin_konstantin/fft_cufft.cu(35): error: expected a ";"
-      cufftExecC2C(plan, d_data, d_data, 1);
-      ^
-
-1 error detected in the compilation of "/home/crazyproger/sandbox/cuda-2025/3822B1FI1/8_fft_cufft/grudzin_konstantin/fft_cufft.cu".
