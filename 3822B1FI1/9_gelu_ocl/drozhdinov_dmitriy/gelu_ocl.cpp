@@ -36,7 +36,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input){
 	program.build();
 	cl::Kernel kernel(program, "gelu_kernel");
 	
-	float s2pi = sqrt(2.0f, M_PI);
+	float s2pi = sqrt(2.0f / M_PI);
 	
 	size_t size = input.size();
 	std::vector<float> output(size);
