@@ -556,22 +556,22 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|chistov_alexey|0.2510|3|
 |3822B1FI1|grudzin_konstantin|0.3203|4|
 |3822B1FI1|mironov_arseniy|0.3257|1|
+|3822B1FI1|drozhdinov_dmitriy|0.3398|5|
 |**REF**|**REF**|**0.3768**|**-**|
 |3822B1FI1|beskhmelnova_kseniya|0.5223|2|
-|3822B1FI1|drozhdinov_dmitriy|BUILD FAILED|-|
 
 # Tasks Done
 ## 3822B1FI1
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
 |3822B1FI1|baranov_aleksey|1/9|3|
-|3822B1FI1|beskhmelnova_kseniya|**9/9**|**84**|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**83**|
 |3822B1FI1|chistov_alexey|**9/9**|**75**|
-|3822B1FI1|drozhdinov_dmitriy|8/9|60|
+|3822B1FI1|drozhdinov_dmitriy|**9/9**|**67**|
 |3822B1FI1|grudzin_konstantin|**9/9**|**78**|
 |3822B1FI1|kurakin_matvey|7/9|68|
 |3822B1FI1|mironov_arseniy|**9/9**|**106**|
 
-Passed: 4
+Passed: 5
 
-**Total Passed: 4**
+**Total Passed: 5**
