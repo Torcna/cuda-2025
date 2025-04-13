@@ -480,6 +480,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|chistov_alexey|0.2780|6|
 |3822B1FI1|kurakin_matvey|0.2833|1|
 |3822B1FI1|mironov_arseniy|0.3005|3|
+|3822B1FI1|kabalova_valeria|0.3224|7|
 |3822B1FI1|drozhdinov_dmitriy|0.3412|4|
 |3822B1FI1|grudzin_konstantin|0.3438|5|
 |3822B1FI1|beskhmelnova_kseniya|0.4201|2|
@@ -566,11 +567,11 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
 |3822B1FI1|baranov_aleksey|1/9|5|
-|3822B1FI1|beskhmelnova_kseniya|**9/9**|**100**|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**99**|
 |3822B1FI1|chistov_alexey|**9/9**|**93**|
-|3822B1FI1|drozhdinov_dmitriy|**9/9**|**84**|
-|3822B1FI1|grudzin_konstantin|**9/9**|**95**|
-|3822B1FI1|kabalova_valeria|1/9|8|
+|3822B1FI1|drozhdinov_dmitriy|**9/9**|**83**|
+|3822B1FI1|grudzin_konstantin|**9/9**|**94**|
+|3822B1FI1|kabalova_valeria|2/9|15|
 |3822B1FI1|kurakin_matvey|7/9|82|
 |3822B1FI1|mironov_arseniy|**9/9**|**123**|
 
