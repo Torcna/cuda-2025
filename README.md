@@ -471,8 +471,8 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|rezantseva_anastasia|0.7553|8|
 |3822B1FI1|beskhmelnova_kseniya|0.7623|1|
 |3822B1FI1|drozhdinov_dmitriy|0.7710|3|
+|3822B1FI1|baranov_aleksey|0.7748|9|
 |**REF**|**REF**|**0.8370**|**-**|
-|3822B1FI1|baranov_aleksey|BUILD FAILED|-|
 
 ## 2_gelu_cuda (134217728 elements)
 |Group|Name|Result|Rank|
@@ -486,7 +486,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|drozhdinov_dmitriy|0.3412|4|
 |3822B1FI1|grudzin_konstantin|0.3438|5|
 |3822B1FI1|beskhmelnova_kseniya|0.4201|2|
-|3822B1FI1|baranov_aleksey|BUILD FAILED|-|
+|3822B1FI1|baranov_aleksey|0.4217|9|
 
 ## 3_naive_gemm_omp (1024 elements)
 |Group|Name|Result|Rank|
@@ -506,6 +506,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |-----|----|------|----|
 |3822B1FI1|mironov_arseniy|0.1620|3|
 |3822B1FI1|grudzin_konstantin|0.1907|5|
+|3822B1FI1|baranov_aleksey|0.2002|7|
 |3822B1FI1|chistov_alexey|0.2019|6|
 |3822B1FI1|beskhmelnova_kseniya|0.2043|2|
 |3822B1FI1|drozhdinov_dmitriy|0.2398|4|
@@ -515,6 +516,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 ## 5_block_gemm_omp (1024 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|baranov_aleksey|0.0561|7|
 |3822B1FI1|chistov_alexey|0.0674|5|
 |3822B1FI1|mironov_arseniy|0.0720|2|
 |3822B1FI1|kurakin_matvey|0.1044|1|
@@ -569,14 +571,14 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 ## 3822B1FI1
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
-|3822B1FI1|baranov_aleksey|1/9|7|
-|3822B1FI1|beskhmelnova_kseniya|**9/9**|**115**|
-|3822B1FI1|chistov_alexey|**9/9**|**111**|
-|3822B1FI1|drozhdinov_dmitriy|**9/9**|**99**|
-|3822B1FI1|grudzin_konstantin|**9/9**|**111**|
+|3822B1FI1|baranov_aleksey|5/9|33|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**113**|
+|3822B1FI1|chistov_alexey|**9/9**|**109**|
+|3822B1FI1|drozhdinov_dmitriy|**9/9**|**97**|
+|3822B1FI1|grudzin_konstantin|**9/9**|**110**|
 |3822B1FI1|kabalova_valeria|2/9|18|
-|3822B1FI1|kurakin_matvey|7/9|96|
-|3822B1FI1|mironov_arseniy|**9/9**|**140**|
+|3822B1FI1|kurakin_matvey|7/9|94|
+|3822B1FI1|mironov_arseniy|**9/9**|**139**|
 |3822B1FI1|rezantseva_anastasia|2/9|15|
 
 Passed: 5
