@@ -90,6 +90,14 @@ Two files are expected to be uploaded:
 #include <cstdlib>
 #include <vector>
 
+#ifdef _WIN32
+#define aligned_alloc(ALIGN, SIZE) _aligned_malloc(SIZE, ALIGN)
+#define aligned_free(PTR) _aligned_free(PTR)
+#else
+#define aligned_alloc(ALIGN, SIZE) std::aligned_alloc(ALIGN, SIZE)
+#define aligned_free(PTR) std::free(PTR)
+#endif
+
 template <typename T, std::size_t N = 16>
 class AlignedAllocator {
   public:
@@ -119,11 +127,11 @@ class AlignedAllocator {
     }
 
     inline pointer allocate(size_type n) {
-        return (pointer)std::aligned_alloc(N, n * sizeof(value_type));
+        return (pointer)aligned_alloc(N, n * sizeof(value_type));
     }
 
     inline void deallocate(pointer p, size_type) {
-        std::free(p);
+        aligned_free(p);
     }
 
     inline void construct(pointer p, const value_type & wert) {
