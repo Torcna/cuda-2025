@@ -9,9 +9,9 @@ AlignedVector GeluOMP(const AlignedVector &input)
     float x = 0;
     float x3 = 0;
     float arg = 0;
-    size_t i = 0;
+    auto sz = input.size();
 #pragma omp parallel for
-    for (auto sz = input.size(); i != sz; ++i)
+    for (size_t i = 0; i < sz; i++)
     {
         x = input[i];
         x3 = x * x * x;
