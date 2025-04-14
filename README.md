@@ -498,8 +498,8 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|chistov_alexey|0.7405|5|
 |3822B1FI1|baranov_aleksey|0.7490|7|
 |3822B1FI1|drozhdinov_dmitriy|0.7571|4|
+|3822B1FI1|kabalova_valeria|0.7721|8|
 |**REF**|**REF**|**0.8283**|**-**|
-|3822B1FI1|kabalova_valeria|BUILD FAILED|-|
 
 ## 4_naive_gemm_cuda (4096 elements)
 |Group|Name|Result|Rank|
@@ -576,7 +576,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|chistov_alexey|**9/9**|**109**|
 |3822B1FI1|drozhdinov_dmitriy|**9/9**|**97**|
 |3822B1FI1|grudzin_konstantin|**9/9**|**110**|
-|3822B1FI1|kabalova_valeria|2/9|18|
+|3822B1FI1|kabalova_valeria|3/9|22|
 |3822B1FI1|kurakin_matvey|7/9|94|
 |3822B1FI1|mironov_arseniy|**9/9**|**139**|
 |3822B1FI1|rezantseva_anastasia|2/9|15|
