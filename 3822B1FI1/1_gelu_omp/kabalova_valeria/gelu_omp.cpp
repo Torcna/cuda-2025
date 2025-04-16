@@ -18,7 +18,7 @@ inline float my_tanh(float x) {
   return x * (coeff2 + x_2 * (coeff3 + x_2 * coeff4)) / (coeff5 + x_2 * (coeff6 + x_2 * (coeff7 + x_2)));
 }
 
-float Gelu1(const float& x) {
+float Gelu(const float& x) {
   constexpr float coeff1 = 0.79788458347320556640625f;
   constexpr float coeff2 = 0.044715f;
   constexpr float coeff3 = 4.1f;
