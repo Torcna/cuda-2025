@@ -1,0 +1,5 @@
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/1_gelu_omp/kabalova_valeria/gelu_omp.cpp: In function ‘float Gelu(const float&)’:
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/1_gelu_omp/kabalova_valeria/gelu_omp.cpp:30:29: error: ‘tanhf’ is not a member of ‘std’; did you mean ‘tanh’?
+   30 |   if (x <= 0.0f) tmp = std::tanhf(arg);
+      |                             ^~~~~
+      |                             tanh
