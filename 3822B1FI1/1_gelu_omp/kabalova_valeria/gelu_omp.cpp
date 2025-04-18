@@ -27,7 +27,7 @@ float Gelu(const float& x) {
 
   float arg = coeff1 * (x + coeff2 * x * x * x);
   float tmp;
-  if (x <= 0.0f) tmp = std::tanhf(arg);
+  if (x <= 0.0f) tmp = std::tanh(arg);
   else if (arg >= coeff3) tmp = coeff4;
   else tmp = my_tanh(arg);
   return coeff5 * x * (coeff4 + tmp);
