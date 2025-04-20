@@ -481,6 +481,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|drozhdinov_dmitriy|0.7710|3|
 |3822B1FI1|baranov_aleksey|0.7748|9|
 |**REF**|**REF**|**0.8370**|**-**|
+|3822B1FI1|sedova_olga|BUILD FAILED|-|
 
 ## 2_gelu_cuda (134217728 elements)
 |Group|Name|Result|Rank|
