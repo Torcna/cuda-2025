@@ -12,9 +12,10 @@
 #define aligned_free(PTR) _aligned_free(PTR)
 #else
 #include <cstdlib>
-#define aligned_alloc(ALIGN, SIZE) aligned_alloc(ALIGN, SIZE)
-#define aligned_free(PTR) free(PTR)
+#define aligned_alloc(ALIGN, SIZE) std::aligned_alloc(ALIGN, SIZE)
+#define aligned_free(PTR) std::free(PTR)
 #endif
+
 
 template <typename T, std::size_t N = 16>
 class AlignedAllocator {
