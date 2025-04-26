@@ -12,7 +12,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
     if(i<size){
       float x = input[i];
       float in_tanh = 0.797885f * (x + 0.044715f * x * x * x);
-	    output[i] = 0.5f * x * (1.0f + std::tanh(in_tanh));
+	    output[i] = 0.5f * x * (1.0f + tanh(in_tanh));
       }
     })";
 
@@ -28,7 +28,8 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 
   cl_context context = clCreateContext(NULL, 1, &device, NULL, NULL, NULL);
 
-  cl_command_queue queue = clCreateCommandQueue(context, device, 0, NULL);
+  cl_queue_properties props[] = {CL_QUEUE_PROPERTIES, 0, 0};
+  cl_command_queue queue = clCreateCommandQueueWithProperties(context, device, props, NULL);
 
   cl_program program = clCreateProgramWithSource(context, 1, &gelu, NULL, NULL);
   const char* args = "-cl-fast-relaxed-math";
