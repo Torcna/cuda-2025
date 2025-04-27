@@ -1,6 +1,5 @@
 #include "block_gemm_cuda.h"
 #include <cuda_runtime.h>
-#include <stdexcept>
 
 #define BLOCK_SIZE 32
 
