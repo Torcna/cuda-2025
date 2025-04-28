@@ -538,8 +538,8 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |**REF**|**REF**|**0.1575**|**-**|
 |3822B1FI1|sedova_olga|0.1717|9|
 |3822B1FI1|grudzin_konstantin|0.2033|6|
-|3822B1FI1|rezantseva_anastasia|0.2380|8|
 |3822B1FI1|beskhmelnova_kseniya|0.2720|3|
+|3822B1FI1|rezantseva_anastasia|0.3072|8|
 |3822B1FI1|drozhdinov_dmitriy|0.3107|4|
 
 ## 6_block_gemm_cuda (4096 elements)
@@ -594,14 +594,14 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
 |3822B1FI1|baranov_aleksey|8/9|96|
-|3822B1FI1|beskhmelnova_kseniya|**9/9**|**141**|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**142**|
 |3822B1FI1|chistov_alexey|**9/9**|**140**|
 |3822B1FI1|drozhdinov_dmitriy|**9/9**|**125**|
 |3822B1FI1|grudzin_konstantin|**9/9**|**142**|
 |3822B1FI1|kabalova_valeria|3/9|35|
 |3822B1FI1|kurakin_matvey|**9/9**|**141**|
 |3822B1FI1|mironov_arseniy|**9/9**|**173**|
-|3822B1FI1|rezantseva_anastasia|4/9|37|
+|3822B1FI1|rezantseva_anastasia|4/9|36|
 |3822B1FI1|sedova_olga|5/9|44|
 |3822B1FI1|suvorov_dmitrii|0/9|0|
 
