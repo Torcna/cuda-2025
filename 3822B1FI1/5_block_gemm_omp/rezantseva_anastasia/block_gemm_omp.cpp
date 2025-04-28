@@ -6,11 +6,11 @@
 #include <random>
 #include <vector>
 
-const int BLOCK_SIZE = 64;
 std::vector<float> BlockGemmOMP(const std::vector<float>& a,
                                 const std::vector<float>& b,
                                 int n) {
     std::vector<float> b_trans(n * n);
+    int BLOCK_SIZE = 32;
 #pragma omp parallel for
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
