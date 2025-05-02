@@ -69,8 +69,6 @@ class AlignedAllocator {
 
 using AlignedVector = std::vector<float, AlignedAllocator<float, 128>>;
 
-AlignedVector GeluOMP(const AlignedVector& input);
-
-float Gelu(float x);
+AlignedVector Gelu(const AlignedVector& input);
 
 #endif // __GELU_OMP_H

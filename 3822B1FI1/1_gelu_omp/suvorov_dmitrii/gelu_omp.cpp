@@ -2,7 +2,7 @@
 #include <cmath>
 #include "gelu_omp.h"
 
-AlignedVector Gelu(const AlignedVector& input){
+AlignedVector Gelu(const AlignedVector& input) {
   AlignedVector result(input.size());
 
   #pragma omp parallel for schedule(static)
