@@ -32,7 +32,7 @@ __global__ void GeluKernel(const float* __restrict__ input, float* __restrict__ 
 }
 
 
-std::vector<float> GeluCUDA(std::vector<float>& input) {
+std::vector<float> GeluCUDA(const std::vector<float>& input) {
   const size_t n = input.size();
   const size_t n_2 = n/2;
   std::vector<float> resultVector(n);
