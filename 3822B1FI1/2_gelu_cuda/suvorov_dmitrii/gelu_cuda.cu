@@ -24,20 +24,17 @@ std::vector<float> GeluCUDA(const std::vector<float>& input) {
 
   cudaError_t err = cudaMalloc((void**)&d_input, size * sizeof(float));
   if (err != cudaSuccess) {
-    std::cerr << "CUDA memory allocation error for input: " << cudaGetErrorString(err) << std::endl;
     return output;
   }
 
   err = cudaMalloc((void**)&d_output, size * sizeof(float));
   if (err != cudaSuccess) {
-    std::cerr << "CUDA memory allocation error for output: " << cudaGetErrorString(err) << std::endl;
     cudaFree(d_input);
     return output;
   }
 
   err = cudaMemcpy(d_input, input.data(), size * sizeof(float), cudaMemcpyHostToDevice);
   if (err != cudaSuccess) {
-    std::cerr << "CUDA memory copy error (Host to Device): " << cudaGetErrorString(err) << std::endl;
     cudaFree(d_input);
     cudaFree(d_output);
     return output;
@@ -50,7 +47,6 @@ std::vector<float> GeluCUDA(const std::vector<float>& input) {
 
   err = cudaGetLastError();
   if (err != cudaSuccess) {
-    std::cerr << "CUDA kernel launch error: " << cudaGetErrorString(err) << std::endl;
     cudaFree(d_input);
     cudaFree(d_output);
     return output;
@@ -58,7 +54,6 @@ std::vector<float> GeluCUDA(const std::vector<float>& input) {
 
   err = cudaMemcpy(output.data(), d_output, size * sizeof(float), cudaMemcpyDeviceToHost);
   if (err != cudaSuccess) {
-    std::cerr << "CUDA memory copy error (Device to Host): " << cudaGetErrorString(err) << std::endl;
     cudaFree(d_input);
     cudaFree(d_output);
     return output;

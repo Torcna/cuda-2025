@@ -2,10 +2,10 @@
 #include <cmath>
 #include "gelu_omp.h"
 
-float Gelu(float x){
+AlignedVector Gelu(const AlignedVector& input) {
   AlignedVector result(input.size());
 
-#pragma omp parallel for schedule(static)
+  #pragma omp parallel for schedule(static)
   for (int i = 0; i < static_cast<int>(input.size()); ++i) {
     float x = input[i];
     float x2 = x * x;
