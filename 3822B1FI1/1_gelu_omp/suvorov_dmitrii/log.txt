@@ -1,11 +1,5 @@
-/home/crazyproger/sandbox/cuda-2025/3822B1FI1/1_gelu_omp/suvorov_dmitrii/gelu_omp.cpp: In function ‘float Gelu(float)’:
-/home/crazyproger/sandbox/cuda-2025/3822B1FI1/1_gelu_omp/suvorov_dmitrii/gelu_omp.cpp:6:24: error: ‘input’ was not declared in this scope; did you mean ‘int’?
-    6 |   AlignedVector result(input.size());
-      |                        ^~~~~
-      |                        int
-/home/crazyproger/sandbox/cuda-2025/3822B1FI1/1_gelu_omp/suvorov_dmitrii/gelu_omp.cpp:9:3: error: invalid controlling predicate
-    9 |   for (int i = 0; i < static_cast<int>(input.size()); ++i) {
-      |   ^~~
-/home/crazyproger/sandbox/cuda-2025/3822B1FI1/1_gelu_omp/suvorov_dmitrii/gelu_omp.cpp:18:10: error: cannot convert ‘AlignedVector’ {aka ‘std::vector<float, AlignedAllocator<float, 128> >’} to ‘float’ in return
-   18 |   return result;
-      |          ^~~~~~
+/usr/bin/ld: /tmp/cchlhJi0.o: in function `main':
+main.cpp:(.text.startup+0xd8): undefined reference to `GeluOMP(std::vector<float, AlignedAllocator<float, 128ul> > const&)'
+/usr/bin/ld: main.cpp:(.text.startup+0x5da): undefined reference to `GeluOMP(std::vector<float, AlignedAllocator<float, 128ul> > const&)'
+/usr/bin/ld: main.cpp:(.text.startup+0x5fe): undefined reference to `GeluOMP(std::vector<float, AlignedAllocator<float, 128ul> > const&)'
+collect2: error: ld returned 1 exit status
