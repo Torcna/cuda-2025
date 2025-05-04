@@ -594,24 +594,24 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|drozhdinov_dmitriy|0.3398|5|
 |**REF**|**REF**|**0.3768**|**-**|
 |3822B1FI1|kurakin_matvey|0.4102|6|
+|3822B1FI1|rezantseva_anastasia|0.4108|7|
 |3822B1FI1|beskhmelnova_kseniya|0.5223|2|
 |3822B1FI1|sedova_olga|0.5520|8|
-|3822B1FI1|rezantseva_anastasia|0.6253|7|
 
 # Tasks Done
 ## 3822B1FI1
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
 |3822B1FI1|baranov_aleksey|8/9|94|
-|3822B1FI1|beskhmelnova_kseniya|**9/9**|**137**|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**136**|
 |3822B1FI1|chistov_alexey|**9/9**|**137**|
 |3822B1FI1|drozhdinov_dmitriy|**9/9**|**123**|
 |3822B1FI1|grudzin_konstantin|**9/9**|**139**|
 |3822B1FI1|kabalova_valeria|3/9|34|
 |3822B1FI1|kurakin_matvey|**9/9**|**139**|
 |3822B1FI1|mironov_arseniy|**9/9**|**170**|
-|3822B1FI1|rezantseva_anastasia|8/9|85|
-|3822B1FI1|sedova_olga|8/9|65|
+|3822B1FI1|rezantseva_anastasia|8/9|87|
+|3822B1FI1|sedova_olga|8/9|64|
 |3822B1FI1|suvorov_dmitrii|0/9|0|
 
 Passed: 6
