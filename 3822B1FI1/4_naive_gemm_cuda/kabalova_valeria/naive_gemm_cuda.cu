@@ -1,43 +1,23 @@
 #include "naive_gemm_cuda.h"
 
 #include <cuda_runtime.h>
+#include <random>
+#include <iostream>
+#include <chrono>
+#include <cstdlib>
 
 
 #define BLOCK_SIZE 32
 
 
 __global__ void kernel(const float* __restrict__ a, const float* __restrict__ b, float* __restrict__ c, int n) {
-
-  __shared__ float tile_a[BLOCK_SIZE][BLOCK_SIZE];
-  __shared__ float tile_b[BLOCK_SIZE][BLOCK_SIZE];
-
-  int j = blockIdx.x * BLOCK_SIZE + threadIdx.x;
-  int i = blockIdx.y * BLOCK_SIZE + threadIdx.y;
-
-  float sum = 0;
-  int idx;
-
-  for (int phase = 0; phase < gridDim.x; ++phase) {
-    idx = phase * BLOCK_SIZE + threadIdx.x;
-    if (i < n && idx < n) {
-      tile_a[threadIdx.y][threadIdx.x] = a[i * n + idx];
+  int j = blockIdx.x * blockDim.x + threadIdx.x;
+  int i = blockIdx.y * blockDim.y + threadIdx.y;
+  if (i < n && j < n) {
+    float sum = 0.0f;
+    for (int k = 0; k < n; ++k) {
+      sum += a[i * n + k] * b[k * n + j];
     }
-
-    idx = phase * BLOCK_SIZE + threadIdx.y;
-
-    if (idx < n && j < n) {
-      tile_b[threadIdx.y][threadIdx.x] = b[idx * n + j];
-    }
-    __syncthreads();
-
-    for (int k = 0; k < BLOCK_SIZE; ++k) {
-      sum += tile_a[threadIdx.y][k] * tile_b[k][threadIdx.x];
-
-    }
-    __syncthreads();
-
-  }
-  if ((i < n) && (j < n)) {
     c[i * n + j] = sum;
   }
 }
