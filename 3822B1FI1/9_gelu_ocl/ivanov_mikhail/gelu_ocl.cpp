@@ -4,11 +4,10 @@
 const char* kernelSource = R"(
 __kernel void gelu(__global const float* input, __global float* output, const int n)
 {
-    const float SQRT2DIVPI = 0.7978845f;
     int i = get_global_id(0);
     if (i < n) {
         float x = input[i];
-        output[i] = 0.5f * x * (1.f + tanh(SQRT2DIVPI * (x + 0.044715f * (x * x * x))));
+        output[i] = 0.5f * x * (1.f + tanh(0.7978845f * (x + 0.044715f * (x * x * x))));
     }
 }
 )";
@@ -19,21 +18,30 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
   std::vector<float> result(inputSize);
 
   cl_platform_id platform;
-  clGetPlatformIDs(1, &platform, nullptr);
-
   cl_device_id device;
+  cl_context context;
+  cl_command_queue queue;
+  cl_program program;
+  cl_kernel kernel;
+  cl_mem inputBuffer;
+  cl_mem outputBuffer;
+
+
+  clGetPlatformIDs(1, &platform, nullptr);
   clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, nullptr);
 
-  cl_context context = clCreateContext(nullptr, 1, &device, nullptr, nullptr, nullptr);
-  cl_command_queue queue = clCreateCommandQueueWithProperties(context, device, 0, nullptr);
+  context = clCreateContext(nullptr, 1, &device, nullptr, nullptr, nullptr);
+  queue = clCreateCommandQueueWithProperties(context, device, 0, nullptr);
 
-  cl_program program = clCreateProgramWithSource(context, 1, &kernelSource, nullptr, nullptr);
+  program = clCreateProgramWithSource(context, 1, &kernelSource, nullptr, nullptr);
   clBuildProgram(program, 1, &device, nullptr, nullptr, nullptr);
   
-  cl_kernel kernel = clCreateKernel(program, "gelu", nullptr);
+  kernel = clCreateKernel(program, "gelu", nullptr);
 
-  cl_mem inputBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR, size, (void*)input.data(), nullptr);
-  cl_mem outputBuffer = clCreateBuffer(context, CL_MEM_WRITE_ONLY, size, nullptr, nullptr);
+  inputBuffer = clCreateBuffer(context, CL_MEM_READ_ONLY, size, nullptr, nullptr);
+  outputBuffer = clCreateBuffer(context, CL_MEM_WRITE_ONLY, size, nullptr, nullptr);
+
+  clEnqueueWriteBuffer(queue, inputBuffer, CL_TRUE, 0, size, input.data(), 0, NULL, NULL);
 
   clSetKernelArg(kernel, 0, sizeof(cl_mem), &inputBuffer);
   clSetKernelArg(kernel, 1, sizeof(cl_mem), &outputBuffer);
