@@ -571,6 +571,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |Group|Name|Result|Rank|
 |-----|----|------|----|
 |3822B1FI1|baranov_aleksey|0.0537|7|
+|3822B1FI1|ivanov_mikhail|0.0684|8|
 |3822B1FI1|mironov_arseniy|0.0690|1|
 |**REF**|**REF**|**0.0718**|**-**|
 |3822B1FI1|drozhdinov_dmitriy|0.0756|4|
@@ -581,7 +582,6 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|rezantseva_anastasia|TEST FAILED|-|
 |3822B1FI1|sedova_olga|TEST FAILED|-|
 |3822B1FI1|suvorov_dmitrii|TEST FAILED|-|
-|3822B1FI1|ivanov_mikhail|TEST FAILED|-|
 
 ## 8_fft_cufft (131072 elements)
 |Group|Name|Result|Rank|
@@ -606,31 +606,31 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|grudzin_konstantin|0.3203|4|
 |3822B1FI1|mironov_arseniy|0.3257|1|
 |3822B1FI1|drozhdinov_dmitriy|0.3398|5|
+|3822B1FI1|ivanov_mikhail|0.3560|10|
 |**REF**|**REF**|**0.3768**|**-**|
 |3822B1FI1|kurakin_matvey|0.4102|6|
 |3822B1FI1|suvorov_dmitrii|0.4104|9|
 |3822B1FI1|rezantseva_anastasia|0.4108|7|
 |3822B1FI1|beskhmelnova_kseniya|0.5223|2|
 |3822B1FI1|sedova_olga|0.5520|8|
-|3822B1FI1|ivanov_mikhail|TOO SLOW|-|
 
 # Tasks Done
 ## 3822B1FI1
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
 |3822B1FI1|baranov_aleksey|8/9|103|
-|3822B1FI1|beskhmelnova_kseniya|**9/9**|**143**|
-|3822B1FI1|chistov_alexey|**9/9**|**148**|
-|3822B1FI1|drozhdinov_dmitriy|**9/9**|**131**|
-|3822B1FI1|grudzin_konstantin|**9/9**|**150**|
-|3822B1FI1|ivanov_mikhail|7/9|65|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**141**|
+|3822B1FI1|chistov_alexey|**9/9**|**147**|
+|3822B1FI1|drozhdinov_dmitriy|**9/9**|**130**|
+|3822B1FI1|grudzin_konstantin|**9/9**|**149**|
+|3822B1FI1|ivanov_mikhail|**9/9**|**92**|
 |3822B1FI1|kabalova_valeria|3/9|51|
-|3822B1FI1|kurakin_matvey|**9/9**|**150**|
-|3822B1FI1|mironov_arseniy|**9/9**|**182**|
-|3822B1FI1|rezantseva_anastasia|8/9|95|
-|3822B1FI1|sedova_olga|8/9|68|
-|3822B1FI1|suvorov_dmitrii|6/9|62|
+|3822B1FI1|kurakin_matvey|**9/9**|**148**|
+|3822B1FI1|mironov_arseniy|**9/9**|**181**|
+|3822B1FI1|rezantseva_anastasia|8/9|94|
+|3822B1FI1|sedova_olga|8/9|67|
+|3822B1FI1|suvorov_dmitrii|6/9|61|
 
-Passed: 6
+Passed: 7
 
-**Total Passed: 6**
+**Total Passed: 7**
