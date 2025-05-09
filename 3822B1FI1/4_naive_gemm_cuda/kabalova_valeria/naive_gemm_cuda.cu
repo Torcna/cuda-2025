@@ -28,7 +28,7 @@ std::vector<float> NaiveGemmCUDA(const std::vector<float>& a,
 
   std::vector<float> c(n * n);
 
-  float* a_gpu, * b_gpu;
+  float* a_gpu, *b_gpu;
   cudaMalloc((void**)&a_gpu, n * n * sizeof(float));
   cudaMalloc((void**)&b_gpu, n * n * sizeof(float));
 
