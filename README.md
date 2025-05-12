@@ -527,6 +527,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|suvorov_dmitrii|0.1648|11|
 |3822B1FI1|sedova_olga|0.1880|8|
 |3822B1FI1|grudzin_konstantin|0.1907|5|
+|3822B1FI1|kabalova_valeria|0.1927|12|
 |3822B1FI1|baranov_aleksey|0.2002|7|
 |3822B1FI1|chistov_alexey|0.2019|6|
 |3822B1FI1|beskhmelnova_kseniya|0.2043|2|
@@ -545,6 +546,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|chistov_alexey|0.0674|5|
 |3822B1FI1|mironov_arseniy|0.0720|2|
 |3822B1FI1|kurakin_matvey|0.1044|1|
+|3822B1FI1|kabalova_valeria|0.1475|12|
 |**REF**|**REF**|**0.1575**|**-**|
 |3822B1FI1|sedova_olga|0.1717|9|
 |3822B1FI1|grudzin_konstantin|0.2033|6|
@@ -562,6 +564,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|kurakin_matvey|0.1545|5|
 |3822B1FI1|suvorov_dmitrii|0.1547|11|
 |3822B1FI1|drozhdinov_dmitriy|0.1555|4|
+|3822B1FI1|kabalova_valeria|0.1675|12|
 |3822B1FI1|rezantseva_anastasia|0.1678|8|
 |3822B1FI1|ivanov_mikhail|0.2574|10|
 |3822B1FI1|sedova_olga|0.3181|9|
@@ -576,6 +579,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |**REF**|**REF**|**0.0718**|**-**|
 |3822B1FI1|drozhdinov_dmitriy|0.0756|4|
 |3822B1FI1|rezantseva_anastasia|0.0778|9|
+|3822B1FI1|kabalova_valeria|0.0782|10|
 |3822B1FI1|grudzin_konstantin|0.0788|5|
 |3822B1FI1|chistov_alexey|0.0794|6|
 |3822B1FI1|beskhmelnova_kseniya|0.0796|3|
@@ -592,6 +596,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|baranov_aleksey|0.1642|6|
 |3822B1FI1|beskhmelnova_kseniya|0.1645|2|
 |3822B1FI1|chistov_alexey|0.1753|5|
+|3822B1FI1|kabalova_valeria|0.1805|12|
 |3822B1FI1|kurakin_matvey|0.1888|7|
 |3822B1FI1|ivanov_mikhail|0.1938|11|
 |3822B1FI1|drozhdinov_dmitriy|0.1974|1|
@@ -613,22 +618,23 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|rezantseva_anastasia|0.4108|7|
 |3822B1FI1|beskhmelnova_kseniya|0.5223|2|
 |3822B1FI1|sedova_olga|0.5520|8|
+|3822B1FI1|kabalova_valeria|BUILD FAILED|-|
 
 # Tasks Done
 ## 3822B1FI1
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
-|3822B1FI1|baranov_aleksey|8/9|103|
-|3822B1FI1|beskhmelnova_kseniya|**9/9**|**140**|
-|3822B1FI1|chistov_alexey|**9/9**|**146**|
-|3822B1FI1|drozhdinov_dmitriy|**9/9**|**130**|
-|3822B1FI1|grudzin_konstantin|**9/9**|**148**|
-|3822B1FI1|ivanov_mikhail|**9/9**|**92**|
-|3822B1FI1|kabalova_valeria|3/9|51|
-|3822B1FI1|kurakin_matvey|**9/9**|**147**|
+|3822B1FI1|baranov_aleksey|8/9|102|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**136**|
+|3822B1FI1|chistov_alexey|**9/9**|**144**|
+|3822B1FI1|drozhdinov_dmitriy|**9/9**|**127**|
+|3822B1FI1|grudzin_konstantin|**9/9**|**146**|
+|3822B1FI1|ivanov_mikhail|**9/9**|**89**|
+|3822B1FI1|kabalova_valeria|8/9|88|
+|3822B1FI1|kurakin_matvey|**9/9**|**144**|
 |3822B1FI1|mironov_arseniy|**9/9**|**181**|
-|3822B1FI1|rezantseva_anastasia|**9/9**|**106**|
-|3822B1FI1|sedova_olga|8/9|67|
+|3822B1FI1|rezantseva_anastasia|**9/9**|**105**|
+|3822B1FI1|sedova_olga|8/9|64|
 |3822B1FI1|suvorov_dmitrii|6/9|61|
 
 Passed: 8
