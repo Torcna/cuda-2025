@@ -1,42 +1,39 @@
 #include "fft_cufft.h"
-#include <cstring>
 #include <cuda_runtime.h>
 #include <cufft.h>
 
 #define BLOCK_SIZE 256
 
-__global__ void normalizeKernel(float* data, int total_size, float normFactor) {
+__global__ void normalize_complex(cufftComplex* data, int totalComplex, int n) {
     int idx = blockIdx.x * blockDim.x + threadIdx.x;
-    if (idx < total_size) {
-        data[idx] *= normFactor;
+    if (idx < totalComplex) {
+        data[idx].x /= n;
+        data[idx].y /= n;
     }
 }
 
-std::vector<float> FffCUFFT(const std::vector<float>& input, int batch) {
-    int totalFloats = input.size();
-    int n = totalFloats / (2 * batch);
-    int totalComplex = totalFloats / 2;
+std::vector<float> FftCUFFT(const std::vector<float>& input, int batch) {
+    const int totalFloats = input.size();
+    const int n = totalFloats / (2 * batch);
+    const int totalComplex = totalFloats / 2;
 
     cufftHandle plan;
     cufftPlan1d(&plan, n, CUFFT_C2C, batch);
 
-    size_t memory = totalFloats * sizeof(float);
-    cufftComplex* d_data = nullptr;
-    cudaMalloc((void**)&d_data, sizeof(cufftComplex) * totalComplex);
-    cudaMemcpy(d_data, input.data(), memory, cudaMemcpyHostToDevice);
+    cufftComplex* gpu_data;
+    cudaMalloc(&gpu_data, totalComplex * sizeof(cufftComplex));
+    cudaMemcpy(gpu_data, input.data(), totalFloats * sizeof(float), cudaMemcpyHostToDevice);
 
-    cufftExecC2C(plan, d_data, d_data, CUFFT_FORWARD);
-    cufftExecC2C(plan, d_data, d_data, CUFFT_INVERSE);
+    cufftExecC2C(plan, gpu_data, gpu_data, CUFFT_FORWARD);
+    cufftExecC2C(plan, gpu_data, gpu_data, CUFFT_INVERSE);
 
-    int threadsPerBlock = BLOCK_SIZE;
-    int blocksPerGrid = (totalComplex + threadsPerBlock - 1) / threadsPerBlock;
-    float normFactor = 1.0f / n;
-    normalizeKernel << <blocksPerGrid, threadsPerBlock >> > (reinterpret_cast<float*>(d_data), totalFloats, normFactor);
+    int blocksPerGrid = (totalComplex + BLOCK_SIZE - 1) / BLOCK_SIZE;
+    normalize_complex << <blocksPerGrid, BLOCK_SIZE >> > (gpu_data, totalComplex, n);
 
     std::vector<float> result(totalFloats);
-    cudaMemcpy(result.data(), d_data, memory, cudaMemcpyDeviceToHost);
+    cudaMemcpy(result.data(), gpu_data, totalFloats * sizeof(float), cudaMemcpyDeviceToHost);
 
-    cudaFree(d_data);
+    cudaFree(gpu_data);
     cufftDestroy(plan);
 
     return result;
