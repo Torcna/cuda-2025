@@ -575,11 +575,11 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|mironov_arseniy|0.0690|1|
 |**REF**|**REF**|**0.0718**|**-**|
 |3822B1FI1|drozhdinov_dmitriy|0.0756|4|
+|3822B1FI1|rezantseva_anastasia|0.0778|9|
 |3822B1FI1|grudzin_konstantin|0.0788|5|
 |3822B1FI1|chistov_alexey|0.0794|6|
 |3822B1FI1|beskhmelnova_kseniya|0.0796|3|
 |3822B1FI1|kurakin_matvey|0.0854|2|
-|3822B1FI1|rezantseva_anastasia|TEST FAILED|-|
 |3822B1FI1|sedova_olga|TEST FAILED|-|
 |3822B1FI1|suvorov_dmitrii|TEST FAILED|-|
 
@@ -619,18 +619,18 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
 |3822B1FI1|baranov_aleksey|8/9|103|
-|3822B1FI1|beskhmelnova_kseniya|**9/9**|**141**|
-|3822B1FI1|chistov_alexey|**9/9**|**147**|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**140**|
+|3822B1FI1|chistov_alexey|**9/9**|**146**|
 |3822B1FI1|drozhdinov_dmitriy|**9/9**|**130**|
-|3822B1FI1|grudzin_konstantin|**9/9**|**149**|
+|3822B1FI1|grudzin_konstantin|**9/9**|**148**|
 |3822B1FI1|ivanov_mikhail|**9/9**|**92**|
 |3822B1FI1|kabalova_valeria|3/9|51|
-|3822B1FI1|kurakin_matvey|**9/9**|**148**|
+|3822B1FI1|kurakin_matvey|**9/9**|**147**|
 |3822B1FI1|mironov_arseniy|**9/9**|**181**|
-|3822B1FI1|rezantseva_anastasia|8/9|94|
+|3822B1FI1|rezantseva_anastasia|**9/9**|**106**|
 |3822B1FI1|sedova_olga|8/9|67|
 |3822B1FI1|suvorov_dmitrii|6/9|61|
 
-Passed: 7
+Passed: 8
 
-**Total Passed: 7**
+**Total Passed: 8**
