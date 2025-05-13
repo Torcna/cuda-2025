@@ -12,7 +12,7 @@ __global__ void normalize_complex(cufftComplex* data, int totalComplex, int n) {
     }
 }
 
-std::vector<float> FftCUFFT(const std::vector<float>& input, int batch) {
+std::vector<float> FffCUFFT(const std::vector<float>& input, int batch) {
     const int totalFloats = input.size();
     const int n = totalFloats / (2 * batch);
     const int totalComplex = totalFloats / 2;
