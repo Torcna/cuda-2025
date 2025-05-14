@@ -1,0 +1,4 @@
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/1_gelu_omp/savchenko_maxim/gelu_omp.cpp: In function ‘AlignedVector GeluOMP(const AlignedVector&)’:
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/1_gelu_omp/savchenko_maxim/gelu_omp.cpp:9:26: error: unable to find numeric literal operator ‘operator""f’
+    9 |         const float c2 = 044715f;
+      |                          ^~~~~~~

@@ -484,6 +484,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|sedova_olga|0.7912|10|
 |**REF**|**REF**|**0.8370**|**-**|
 |3822B1FI1|suvorov_dmitrii|BUILD FAILED|-|
+|3822B1FI1|savchenko_maxim|BUILD FAILED|-|
 
 ## 2_gelu_cuda (134217728 elements)
 |Group|Name|Result|Rank|
@@ -498,6 +499,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|ivanov_mikhail|0.3187|11|
 |3822B1FI1|drozhdinov_dmitriy|0.3412|4|
 |3822B1FI1|grudzin_konstantin|0.3438|5|
+|3822B1FI1|savchenko_maxim|0.3639|12|
 |3822B1FI1|beskhmelnova_kseniya|0.4201|2|
 |3822B1FI1|baranov_aleksey|0.4217|9|
 |3822B1FI1|suvorov_dmitrii|BUILD FAILED|-|
@@ -509,6 +511,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|kurakin_matvey|0.0341|6|
 |3822B1FI1|kabalova_valeria|0.0403|8|
 |3822B1FI1|rezantseva_anastasia|0.0671|9|
+|3822B1FI1|savchenko_maxim|0.1513|13|
 |3822B1FI1|grudzin_konstantin|0.1833|2|
 |3822B1FI1|mironov_arseniy|0.2920|3|
 |3822B1FI1|beskhmelnova_kseniya|0.6873|1|
@@ -525,6 +528,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|rezantseva_anastasia|0.1403|9|
 |3822B1FI1|mironov_arseniy|0.1620|3|
 |3822B1FI1|suvorov_dmitrii|0.1648|11|
+|3822B1FI1|savchenko_maxim|0.1821|13|
 |3822B1FI1|sedova_olga|0.1880|8|
 |3822B1FI1|grudzin_konstantin|0.1907|5|
 |3822B1FI1|kabalova_valeria|0.1927|12|
@@ -550,12 +554,14 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |**REF**|**REF**|**0.1575**|**-**|
 |3822B1FI1|sedova_olga|0.1717|9|
 |3822B1FI1|grudzin_konstantin|0.2033|6|
+|3822B1FI1|savchenko_maxim|0.2630|13|
 |3822B1FI1|beskhmelnova_kseniya|0.2720|3|
 |3822B1FI1|drozhdinov_dmitriy|0.3107|4|
 
 ## 6_block_gemm_cuda (4096 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|savchenko_maxim|0.1461|13|
 |**REF**|**REF**|**0.1464**|**-**|
 |3822B1FI1|mironov_arseniy|0.1489|1|
 |3822B1FI1|grudzin_konstantin|0.1489|6|
@@ -586,6 +592,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|kurakin_matvey|0.0854|2|
 |3822B1FI1|sedova_olga|TEST FAILED|-|
 |3822B1FI1|suvorov_dmitrii|TEST FAILED|-|
+|3822B1FI1|savchenko_maxim|TEST FAILED|-|
 
 ## 8_fft_cufft (131072 elements)
 |Group|Name|Result|Rank|
@@ -603,6 +610,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|drozhdinov_dmitriy|0.1974|1|
 |3822B1FI1|sedova_olga|0.2395|9|
 |**REF**|**REF**|**0.2498**|**-**|
+|3822B1FI1|savchenko_maxim|0.3298|13|
 
 ## 9_gelu_ocl (134217728 elements)
 |Group|Name|Result|Rank|
@@ -617,6 +625,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|suvorov_dmitrii|0.4104|9|
 |3822B1FI1|rezantseva_anastasia|0.4108|7|
 |3822B1FI1|beskhmelnova_kseniya|0.5223|2|
+|3822B1FI1|savchenko_maxim|0.5377|11|
 |3822B1FI1|sedova_olga|0.5520|8|
 |3822B1FI1|kabalova_valeria|BUILD FAILED|-|
 
@@ -624,18 +633,19 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 ## 3822B1FI1
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
-|3822B1FI1|baranov_aleksey|8/9|101|
-|3822B1FI1|beskhmelnova_kseniya|**9/9**|**135**|
-|3822B1FI1|chistov_alexey|**9/9**|**143**|
-|3822B1FI1|drozhdinov_dmitriy|**9/9**|**126**|
-|3822B1FI1|grudzin_konstantin|**9/9**|**146**|
-|3822B1FI1|ivanov_mikhail|**9/9**|**88**|
-|3822B1FI1|kabalova_valeria|8/9|87|
-|3822B1FI1|kurakin_matvey|**9/9**|**143**|
-|3822B1FI1|mironov_arseniy|**9/9**|**181**|
-|3822B1FI1|rezantseva_anastasia|**9/9**|**115**|
-|3822B1FI1|sedova_olga|8/9|63|
-|3822B1FI1|suvorov_dmitrii|6/9|60|
+|3822B1FI1|baranov_aleksey|8/9|113|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**148**|
+|3822B1FI1|chistov_alexey|**9/9**|**158**|
+|3822B1FI1|drozhdinov_dmitriy|**9/9**|**140**|
+|3822B1FI1|grudzin_konstantin|**9/9**|**161**|
+|3822B1FI1|ivanov_mikhail|**9/9**|**104**|
+|3822B1FI1|kabalova_valeria|8/9|101|
+|3822B1FI1|kurakin_matvey|**9/9**|**159**|
+|3822B1FI1|mironov_arseniy|**9/9**|**197**|
+|3822B1FI1|rezantseva_anastasia|**9/9**|**132**|
+|3822B1FI1|savchenko_maxim|7/9|54|
+|3822B1FI1|sedova_olga|8/9|75|
+|3822B1FI1|suvorov_dmitrii|6/9|70|
 
 Passed: 8
 
