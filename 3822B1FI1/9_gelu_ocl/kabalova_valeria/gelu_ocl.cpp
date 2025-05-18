@@ -26,7 +26,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
   std::vector<float> result(input.size());
 
   cl_platform_id platform;
-  clGetPlatformsIDs(1, &platform, nullptr);
+  clGetPlatformIDs(1, &platform, nullptr);
 
   cl_device_id device;
   clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, nullptr);
