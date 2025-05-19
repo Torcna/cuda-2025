@@ -474,6 +474,8 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|kabalova_valeria|0.2856|7|
 |3822B1FI1|kurakin_matvey|0.4449|5|
 |3822B1FI1|chistov_alexey|0.7067|6|
+|3822B1FI1|savchenko_maxim|0.7245|12|
+|3822B1FI1|ivanov_mikhail|0.7258|11|
 |3822B1FI1|mironov_arseniy|0.7293|2|
 |3822B1FI1|grudzin_konstantin|0.7548|4|
 |3822B1FI1|rezantseva_anastasia|0.7553|8|
@@ -483,35 +485,43 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|sedova_olga|0.7912|10|
 |**REF**|**REF**|**0.8370**|**-**|
 |3822B1FI1|suvorov_dmitrii|BUILD FAILED|-|
+|3822B1FI1|korobeinikov_arseny|TEST FAILED|-|
 
 ## 2_gelu_cuda (134217728 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|kabalova_valeria|0.2600|7|
 |**REF**|**REF**|**0.2648**|**-**|
 |3822B1FI1|chistov_alexey|0.2780|6|
 |3822B1FI1|sedova_olga|0.2827|10|
 |3822B1FI1|kurakin_matvey|0.2833|1|
 |3822B1FI1|rezantseva_anastasia|0.2835|8|
 |3822B1FI1|mironov_arseniy|0.3005|3|
-|3822B1FI1|kabalova_valeria|0.3224|7|
+|3822B1FI1|ivanov_mikhail|0.3187|11|
 |3822B1FI1|drozhdinov_dmitriy|0.3412|4|
 |3822B1FI1|grudzin_konstantin|0.3438|5|
+|3822B1FI1|savchenko_maxim|0.3639|12|
 |3822B1FI1|beskhmelnova_kseniya|0.4201|2|
 |3822B1FI1|baranov_aleksey|0.4217|9|
 |3822B1FI1|suvorov_dmitrii|BUILD FAILED|-|
+|3822B1FI1|korobeinikov_arseny|TEST FAILED|-|
 
 ## 3_naive_gemm_omp (1024 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|ivanov_mikhail|0.0238|11|
 |3822B1FI1|kurakin_matvey|0.0341|6|
+|3822B1FI1|kabalova_valeria|0.0403|8|
 |3822B1FI1|rezantseva_anastasia|0.0671|9|
+|3822B1FI1|savchenko_maxim|0.1513|13|
 |3822B1FI1|grudzin_konstantin|0.1833|2|
 |3822B1FI1|mironov_arseniy|0.2920|3|
 |3822B1FI1|beskhmelnova_kseniya|0.6873|1|
 |3822B1FI1|chistov_alexey|0.7405|5|
 |3822B1FI1|baranov_aleksey|0.7490|7|
+|3822B1FI1|korobeinikov_arseny|0.7521|14|
 |3822B1FI1|drozhdinov_dmitriy|0.7571|4|
-|3822B1FI1|kabalova_valeria|0.7721|8|
+|3822B1FI1|suvorov_dmitrii|0.7855|12|
 |3822B1FI1|sedova_olga|0.8058|10|
 |**REF**|**REF**|**0.8283**|**-**|
 
@@ -520,67 +530,95 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |-----|----|------|----|
 |3822B1FI1|rezantseva_anastasia|0.1403|9|
 |3822B1FI1|mironov_arseniy|0.1620|3|
+|3822B1FI1|suvorov_dmitrii|0.1648|11|
+|3822B1FI1|savchenko_maxim|0.1821|13|
 |3822B1FI1|sedova_olga|0.1880|8|
 |3822B1FI1|grudzin_konstantin|0.1907|5|
+|3822B1FI1|kabalova_valeria|0.1927|12|
 |3822B1FI1|baranov_aleksey|0.2002|7|
 |3822B1FI1|chistov_alexey|0.2019|6|
 |3822B1FI1|beskhmelnova_kseniya|0.2043|2|
 |3822B1FI1|drozhdinov_dmitriy|0.2398|4|
+|3822B1FI1|korobeinikov_arseny|0.3409|14|
 |**REF**|**REF**|**0.3438**|**-**|
+|3822B1FI1|ivanov_mikhail|0.5037|10|
 |3822B1FI1|kurakin_matvey|0.5978|1|
 
 ## 5_block_gemm_omp (1024 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|suvorov_dmitrii|0.0516|11|
 |3822B1FI1|baranov_aleksey|0.0561|7|
+|3822B1FI1|korobeinikov_arseny|0.0594|14|
+|3822B1FI1|rezantseva_anastasia|0.0644|8|
+|3822B1FI1|ivanov_mikhail|0.0658|10|
 |3822B1FI1|chistov_alexey|0.0674|5|
 |3822B1FI1|mironov_arseniy|0.0720|2|
 |3822B1FI1|kurakin_matvey|0.1044|1|
+|3822B1FI1|kabalova_valeria|0.1475|12|
 |**REF**|**REF**|**0.1575**|**-**|
 |3822B1FI1|sedova_olga|0.1717|9|
 |3822B1FI1|grudzin_konstantin|0.2033|6|
+|3822B1FI1|savchenko_maxim|0.2630|13|
 |3822B1FI1|beskhmelnova_kseniya|0.2720|3|
-|3822B1FI1|rezantseva_anastasia|0.3072|8|
 |3822B1FI1|drozhdinov_dmitriy|0.3107|4|
 
 ## 6_block_gemm_cuda (4096 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
+|3822B1FI1|savchenko_maxim|0.1461|13|
 |**REF**|**REF**|**0.1464**|**-**|
 |3822B1FI1|mironov_arseniy|0.1489|1|
 |3822B1FI1|grudzin_konstantin|0.1489|6|
 |3822B1FI1|baranov_aleksey|0.1500|7|
 |3822B1FI1|chistov_alexey|0.1523|3|
 |3822B1FI1|kurakin_matvey|0.1545|5|
+|3822B1FI1|suvorov_dmitrii|0.1547|11|
 |3822B1FI1|drozhdinov_dmitriy|0.1555|4|
+|3822B1FI1|kabalova_valeria|0.1675|12|
 |3822B1FI1|rezantseva_anastasia|0.1678|8|
+|3822B1FI1|ivanov_mikhail|0.2574|10|
+|3822B1FI1|sedova_olga|0.3181|9|
+|3822B1FI1|korobeinikov_arseny|0.3386|14|
 |3822B1FI1|beskhmelnova_kseniya|0.3565|2|
 
 ## 7_gemm_cublas (4096 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
 |3822B1FI1|baranov_aleksey|0.0537|7|
+|3822B1FI1|ivanov_mikhail|0.0684|8|
 |3822B1FI1|mironov_arseniy|0.0690|1|
 |**REF**|**REF**|**0.0718**|**-**|
 |3822B1FI1|drozhdinov_dmitriy|0.0756|4|
+|3822B1FI1|rezantseva_anastasia|0.0778|9|
+|3822B1FI1|kabalova_valeria|0.0782|10|
 |3822B1FI1|grudzin_konstantin|0.0788|5|
 |3822B1FI1|chistov_alexey|0.0794|6|
 |3822B1FI1|beskhmelnova_kseniya|0.0796|3|
 |3822B1FI1|kurakin_matvey|0.0854|2|
-|3822B1FI1|rezantseva_anastasia|TEST FAILED|-|
+|3822B1FI1|korobeinikov_arseny|0.0968|11|
+|3822B1FI1|savchenko_maxim|0.1011|12|
+|3822B1FI1|sedova_olga|BUILD FAILED|-|
+|3822B1FI1|suvorov_dmitrii|TEST FAILED|-|
 
 ## 8_fft_cufft (131072 elements)
 |Group|Name|Result|Rank|
 |-----|----|------|----|
 |3822B1FI1|grudzin_konstantin|0.1123|4|
+|3822B1FI1|korobeinikov_arseny|0.1467|14|
 |3822B1FI1|mironov_arseniy|0.1549|3|
+|3822B1FI1|rezantseva_anastasia|0.1638|8|
+|3822B1FI1|suvorov_dmitrii|0.1638|10|
 |3822B1FI1|baranov_aleksey|0.1642|6|
 |3822B1FI1|beskhmelnova_kseniya|0.1645|2|
 |3822B1FI1|chistov_alexey|0.1753|5|
+|3822B1FI1|kabalova_valeria|0.1805|12|
 |3822B1FI1|kurakin_matvey|0.1888|7|
+|3822B1FI1|ivanov_mikhail|0.1938|11|
 |3822B1FI1|drozhdinov_dmitriy|0.1974|1|
+|3822B1FI1|sedova_olga|0.2395|9|
 |**REF**|**REF**|**0.2498**|**-**|
-|3822B1FI1|rezantseva_anastasia|0.4498|8|
+|3822B1FI1|savchenko_maxim|0.3298|13|
 
 ## 9_gelu_ocl (134217728 elements)
 |Group|Name|Result|Rank|
@@ -589,27 +627,37 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|grudzin_konstantin|0.3203|4|
 |3822B1FI1|mironov_arseniy|0.3257|1|
 |3822B1FI1|drozhdinov_dmitriy|0.3398|5|
+|3822B1FI1|korobeinikov_arseny|0.3531|12|
+|3822B1FI1|ivanov_mikhail|0.3560|10|
 |**REF**|**REF**|**0.3768**|**-**|
 |3822B1FI1|kurakin_matvey|0.4102|6|
+|3822B1FI1|suvorov_dmitrii|0.4104|9|
+|3822B1FI1|rezantseva_anastasia|0.4108|7|
 |3822B1FI1|beskhmelnova_kseniya|0.5223|2|
-|3822B1FI1|rezantseva_anastasia|0.6253|7|
+|3822B1FI1|savchenko_maxim|0.5377|11|
+|3822B1FI1|sedova_olga|0.5520|8|
+|3822B1FI1|kabalova_valeria|BUILD FAILED|-|
+|3822B1FI1|baranov_aleksey|TEST FAILED|-|
 
 # Tasks Done
 ## 3822B1FI1
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
-|3822B1FI1|baranov_aleksey|8/9|94|
-|3822B1FI1|beskhmelnova_kseniya|**9/9**|**139**|
-|3822B1FI1|chistov_alexey|**9/9**|**138**|
-|3822B1FI1|drozhdinov_dmitriy|**9/9**|**123**|
-|3822B1FI1|grudzin_konstantin|**9/9**|**140**|
-|3822B1FI1|kabalova_valeria|3/9|34|
-|3822B1FI1|kurakin_matvey|**9/9**|**140**|
-|3822B1FI1|mironov_arseniy|**9/9**|**171**|
-|3822B1FI1|rezantseva_anastasia|8/9|84|
-|3822B1FI1|sedova_olga|5/9|43|
-|3822B1FI1|suvorov_dmitrii|0/9|0|
+|3822B1FI1|baranov_aleksey|8/9|127|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**161**|
+|3822B1FI1|chistov_alexey|**9/9**|**174**|
+|3822B1FI1|drozhdinov_dmitriy|**9/9**|**154**|
+|3822B1FI1|grudzin_konstantin|**9/9**|**177**|
+|3822B1FI1|ivanov_mikhail|**9/9**|**117**|
+|3822B1FI1|kabalova_valeria|8/9|115|
+|3822B1FI1|korobeinikov_arseny|7/9|60|
+|3822B1FI1|kurakin_matvey|**9/9**|**173**|
+|3822B1FI1|mironov_arseniy|**9/9**|**212**|
+|3822B1FI1|rezantseva_anastasia|**9/9**|**146**|
+|3822B1FI1|savchenko_maxim|**9/9**|**85**|
+|3822B1FI1|sedova_olga|8/9|86|
+|3822B1FI1|suvorov_dmitrii|6/9|79|
 
-Passed: 6
+Passed: 9
 
-**Total Passed: 6**
+**Total Passed: 9**

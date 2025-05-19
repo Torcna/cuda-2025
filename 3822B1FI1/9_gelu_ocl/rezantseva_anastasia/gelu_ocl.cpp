@@ -35,17 +35,10 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
     cl_queue_properties properties[] = { 0 };
     cl_command_queue queue = clCreateCommandQueueWithProperties(context, device, properties, nullptr);
 
-    cl_mem d_input = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_ALLOC_HOST_PTR,
-                                    sizeof(float) * n, nullptr, nullptr);
+    cl_mem d_input = clCreateBuffer(context, CL_MEM_READ_ONLY, sizeof(float) * n, nullptr, nullptr);
+    cl_mem d_output = clCreateBuffer(context, CL_MEM_WRITE_ONLY, sizeof(float) * n, nullptr, nullptr);
 
-    cl_mem d_output = clCreateBuffer(context, CL_MEM_WRITE_ONLY | CL_MEM_ALLOC_HOST_PTR,
-                                     sizeof(float) * n, nullptr, nullptr);
-
-    float* h_input_pinned = (float*)clEnqueueMapBuffer(queue, d_input, CL_TRUE, CL_MAP_WRITE,
-                                                       0, sizeof(float) * n, 0, nullptr, nullptr, nullptr);
-
-    std::memcpy(h_input_pinned, input.data(), sizeof(float) * n);
-    clEnqueueUnmapMemObject(queue, d_input, h_input_pinned, 0, nullptr, nullptr);
+    clEnqueueWriteBuffer(queue, d_input, CL_TRUE, 0, sizeof(float) * n, input.data(), 0, nullptr, nullptr);
 
     cl_program program = clCreateProgramWithSource(context, 1, &geluKernelSource, nullptr, nullptr);
     clBuildProgram(program, 1, &device, nullptr, nullptr, nullptr);
@@ -56,15 +49,10 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
     clSetKernelArg(kernel, 1, sizeof(cl_mem), &d_output);
     clSetKernelArg(kernel, 2, sizeof(int), &n);
 
-    size_t globalSize = (n + 255) / 256 * 256;
-    size_t localSize = 256;
-    clEnqueueNDRangeKernel(queue, kernel, 1, nullptr, &globalSize, &localSize, 0, nullptr, nullptr);
+    size_t globalSize = n;
+    clEnqueueNDRangeKernel(queue, kernel, 1, nullptr, &globalSize, nullptr, 0, nullptr, nullptr);
 
-    float* h_output_pinned = (float*)clEnqueueMapBuffer(queue, d_output, CL_TRUE, CL_MAP_READ,
-                                                        0, sizeof(float) * n, 0, nullptr, nullptr, nullptr);
-
-    std::memcpy(output.data(), h_output_pinned, sizeof(float) * n);
-    clEnqueueUnmapMemObject(queue, d_output, h_output_pinned, 0, nullptr, nullptr);
+    clEnqueueReadBuffer(queue, d_output, CL_TRUE, 0, sizeof(float) * n, output.data(), 0, nullptr, nullptr);
 
     clReleaseKernel(kernel);
     clReleaseProgram(program);

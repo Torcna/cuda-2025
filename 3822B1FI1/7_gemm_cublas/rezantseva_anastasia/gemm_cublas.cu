@@ -1,53 +1,57 @@
 #include "gemm_cublas.h"
-#include <cstring>
 #include <cublas_v2.h>
 #include <cuda_runtime.h>
 
 std::vector<float> GemmCUBLAS(const std::vector<float>& a,
                               const std::vector<float>& b,
                               int n) {
-    size_t required_size = static_cast<size_t>(n) * n;
+    std::vector<float> result(n * n, 0.f);
+    const size_t data_size = n * n * sizeof(float);
 
-    cublasHandle_t handle;
-    cublasCreate(&handle);
+    float* d_matrix_a, * d_matrix_b, * d_matrix_c, * d_matrix_ct;
+    cudaMalloc(&d_matrix_a, data_size);
+    cudaMalloc(&d_matrix_b, data_size);
+    cudaMalloc(&d_matrix_c, data_size);
+    cudaMalloc(&d_matrix_ct, data_size);
 
-    cudaStream_t stream;
-    cudaStreamCreate(&stream);
-    cublasSetStream(handle, stream);
+    cudaMemcpy(d_matrix_a, a.data(), data_size, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_matrix_b, b.data(), data_size, cudaMemcpyHostToDevice);
 
-    size_t memory = required_size * sizeof(float);
-    float* h_A_pinned, * h_B_pinned, * h_C_pinned;
-    cudaHostAlloc(&h_A_pinned, memory, cudaHostAllocDefault);
-    cudaHostAlloc(&h_B_pinned, memory, cudaHostAllocDefault);
-    cudaHostAlloc(&h_C_pinned, memory, cudaHostAllocDefault);
+    cublasHandle_t cublas_handle;
+    cublasCreate_v2(&cublas_handle);
 
-    std::memcpy(h_A_pinned, a.data(), memory);
-    std::memcpy(h_B_pinned, b.data(), memory);
+    const float scale_factor = 1.0f;
+    const float zero_factor = 0.0f;
 
-    float* d_A, * d_B, * d_C;
-    cudaMalloc(&d_A, memory);
-    cudaMalloc(&d_B, memory);
-    cudaMalloc(&d_C, memory);
-    cudaMemcpyAsync(d_A, h_A_pinned, memory, cudaMemcpyHostToDevice, stream);
-    cudaMemcpyAsync(d_B, h_B_pinned, memory, cudaMemcpyHostToDevice, stream);
+    cublasSgemm_v2(cublas_handle,
+                   CUBLAS_OP_T,
+                   CUBLAS_OP_T,
+                   n, n, n,
+                   &scale_factor,
+                   d_matrix_a, n,
+                   d_matrix_b, n,
+                   &zero_factor,
+                   d_matrix_c, n);
 
-    const float alpha = 1.0f;
-    const float beta = 0.0f;
-    cublasSgemm(handle, CUBLAS_OP_T, CUBLAS_OP_T, n, n, n, &alpha, d_B, n, d_A, n, &beta, d_C, n);
-    cudaMemcpyAsync(h_C_pinned, d_C, memory, cudaMemcpyDeviceToHost, stream);
-    cudaStreamSynchronize(stream);
 
-    std::vector<float> result(n * n);
-    std::memcpy(result.data(), h_C_pinned, memory);
+    cublasSgeam(cublas_handle,
+                CUBLAS_OP_T,
+                CUBLAS_OP_N,
+                n, n,
+                &scale_factor,
+                d_matrix_c, n,
+                &zero_factor,
+                nullptr, n,
+                d_matrix_ct, n);
 
-    cudaFree(d_A);
-    cudaFree(d_B);
-    cudaFree(d_C);
-    cudaFreeHost(h_A_pinned);
-    cudaFreeHost(h_B_pinned);
-    cudaFreeHost(h_C_pinned);
-    cudaStreamDestroy(stream);
-    cublasDestroy(handle);
+    cublasDestroy_v2(cublas_handle);
+
+    cudaMemcpy(result.data(), d_matrix_ct, data_size, cudaMemcpyDeviceToHost);
+
+    cudaFree(d_matrix_a);
+    cudaFree(d_matrix_b);
+    cudaFree(d_matrix_c);
+    cudaFree(d_matrix_ct);
 
     return result;
 }
