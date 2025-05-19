@@ -2,6 +2,7 @@
 #include <cuda_runtime.h>
 #include <device_launch_parameters.h>
 #include <cmath>
+#include <iostream>
 
 __global__ void gelu_kernel(const float* input, float* output, int size) {
   int idx = blockIdx.x * blockDim.x + threadIdx.x;

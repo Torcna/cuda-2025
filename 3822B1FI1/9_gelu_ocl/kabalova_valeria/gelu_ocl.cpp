@@ -26,7 +26,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
   std::vector<float> result(input.size());
 
   cl_platform_id platform;
-  clGetPlatformsIDs(1, &platform, nullptr);
+  clGetPlatformIDs(1, &platform, nullptr);
 
   cl_device_id device;
   clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, nullptr);
@@ -35,7 +35,8 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
   context = clCreateContextFromType(nullptr, CL_DEVICE_TYPE_GPU, nullptr, nullptr, nullptr);
 
   cl_command_queue queue;
-  queue = clCreateCommandQueue(context, device, nullptr, nullptr);
+  cl_queue_properties properties[] = {CL_QUEUE_PROPERTIES, 0, 0};
+  queue = clCreateCommandQueue(context, device, properties, nullptr);
 
   cl_mem in, out;
   in = clCreateBuffer(context, CL_MEM_READ_ONLY, input.size() * sizeof(float), nullptr, nullptr);
@@ -48,7 +49,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
   clBuildProgram(program, 1, &device, nullptr, nullptr, nullptr);
   cl_kernel kernel = clCreateKernel(program, "kernel", nullptr);
 
-  const int size = input.size();
+  const size_t size = input.size();
 
   clSetKernelArg(kernel, 0, sizeof(cl_mem), &in);
   clSetKernelArg(kernel, 1, sizeof(cl_mem), &out);

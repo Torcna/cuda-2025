@@ -1,1 +1,9 @@
-Incorrect results, test input_128_1.bin, difference 0.5189110891222983
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(12): error: identifier "CUBLAS_CHECK" is undefined
+      CUBLAS_CHECK(cublasCreate_v2(&handle));
+      ^
+
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(17): error: identifier "CUDA_CHECK" is undefined
+      CUDA_CHECK(cudaMalloc(&d_a, size));
+      ^
+
+2 errors detected in the compilation of "/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu".

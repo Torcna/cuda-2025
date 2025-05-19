@@ -2,18 +2,16 @@
 #include <cmath>
 #include "gelu_omp.h"
 
-AlignedVector Gelu(const AlignedVector& input) {
-  AlignedVector result(input.size());
+float Gelu(float val) {
+  float tanh_arg = 0.797885f * (val + 0.044715f * val * val * val);
+  return 0.5f * val * (1.0f + std::tanh(tanh_arg));
+}
 
-  #pragma omp parallel for schedule(static)
-  for (int i = 0; i < static_cast<int>(input.size()); ++i) {
-    float x = input[i];
-    float x2 = x * x;
-    float x3 = x2 * x;
-    float inner = 0.797885f * std::fma(x3, 0.044715f, x);
-    float tanh_val = std::tanh(inner);
-    result[i] = 0.5f * x * (1.0f + tanh_val);
+AlignedVector GeluOMP(const AlignedVector& input) {
+  AlignedVector output(input.size());
+#pragma omp parallel for
+  for (size_t idx = 0; idx < input.size(); ++idx) {
+    output[idx] = Gelu(input[idx]);
   }
-
-  return result;
+  return output;
 }
