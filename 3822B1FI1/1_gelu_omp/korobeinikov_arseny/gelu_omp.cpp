@@ -1,35 +1,49 @@
+#define _USE_MATH_DEFINES
 #include "gelu_omp.h"
-#include <omp.h>
 #include <cmath>
+#include <omp.h>
+#include <algorithm>
 
-inline float fast_tanh(float x) {
-    const float a = 1.0f;
-    const float b = 0.5f;
-    float x2 = x * x;
-    return x * (a + x2) / (a + b * x2 + x2 * x2);
+namespace
+{
+    constexpr float GELU_COEF = 0.044715f;
+    constexpr float SQRT_2_OVER_PI = 0.7978845608f;
+
+    inline float fast_gelu_approx(float x) noexcept
+    {
+
+        const float x_cubed = x * x * x;
+        const float inner = SQRT_2_OVER_PI * (x + GELU_COEF * x_cubed);
+
+        if (inner > 4.0f)
+            return x;
+        if (inner < -4.0f)
+            return 0.0f;
+
+        const float tanh_val = 1.0f - 2.0f / (1.0f + std::exp(2.0f * inner));
+        return 0.5f * x * (1.0f + tanh_val);
+    }
 }
 
-float Gelu(float x) {
-    const float sqrt_2_over_pi = 0.7978845608f;
-    const float coeff = 0.044715f;
-
-    float cubic = x * x * x;
-    float arg = sqrt_2_over_pi * (x + coeff * cubic);
-
-    float tanh_val = (x <= 0.0f) ? std::tanh(arg)
-                     : (arg > 4.0f) ? 1.0f
-                     : fast_tanh(arg);
-
-    return 0.5f * x * (1.0f + tanh_val);
-}
-
-AlignedVector GeluOMP(const AlignedVector& input) {
-    AlignedVector output(input.size());
-
-    #pragma omp parallel for schedule(static)
-    for (int i = 0; i < static_cast<int>(input.size()); ++i) {
-        output[i] = Gelu(input[i]);
+AlignedVector GeluOMP(const AlignedVector &input)
+{
+    if (input.empty())
+    {
+        return {};
     }
 
-    return output;
+    const size_t size = input.size();
+    AlignedVector res(size);
+    const float *in_data = input.data();
+    float *out_data = res.data();
+
+    const size_t block_size = std::max<size_t>(256, size / (4 * omp_get_max_threads()));
+
+#pragma omp parallel for schedule(dynamic, block_size)
+    for (size_t i = 0; i < size; ++i)
+    {
+        out_data[i] = fast_gelu_approx(in_data[i]);
+    }
+
+    return res;
 }
