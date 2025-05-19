@@ -1,5 +1,0 @@
-/usr/bin/ld: /tmp/cchlhJi0.o: in function `main':
-main.cpp:(.text.startup+0xd8): undefined reference to `GeluOMP(std::vector<float, AlignedAllocator<float, 128ul> > const&)'
-/usr/bin/ld: main.cpp:(.text.startup+0x5da): undefined reference to `GeluOMP(std::vector<float, AlignedAllocator<float, 128ul> > const&)'
-/usr/bin/ld: main.cpp:(.text.startup+0x5fe): undefined reference to `GeluOMP(std::vector<float, AlignedAllocator<float, 128ul> > const&)'
-collect2: error: ld returned 1 exit status
