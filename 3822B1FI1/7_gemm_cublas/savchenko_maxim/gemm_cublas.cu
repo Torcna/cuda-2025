@@ -17,42 +17,33 @@ std::vector<float> GemmCUBLAS(const std::vector<float>& a,
     float* d_A;
     float* d_B;
     float* d_C;
+	float* d_CT;
 
     size_t size = n * n * sizeof(float);
     cudaMalloc(&d_A, size);
     cudaMalloc(&d_B, size);
     cudaMalloc(&d_C, size);
+	cudaMalloc(&d_CT, size);
 
-    std::vector<float> aT(n * n), bT(n * n);
-    transpose(a, aT, n);
-    transpose(b, bT, n);
+    std::vector<float> c(n * n);
 
-    cudaMemcpy(d_A, aT.data(), size, cudaMemcpyHostToDevice);
-    cudaMemcpy(d_B, bT.data(), size, cudaMemcpyHostToDevice);
+    cublasSetMatrix(n, n, sizeof(float), a.data(), n, d_A, n);
+    cublasSetMatrix(n, n, sizeof(float), b.data(), n, d_B, n);
 
     const float alpha = 1.0f;
     const float beta  = 0.0f;
 
     // C = alpha * A * B + beta * C
-    cublasSgemm(handle,
-                CUBLAS_OP_N, CUBLAS_OP_N,
-                n, n, n,
-                &alpha,
-                d_B, n,
-                d_A, n,
-                &beta,
-                d_C, n);
+    cublasSgemm(handle, CUBLAS_OP_T, CUBLAS_OP_T, n, n, n, &alpha, d_A, n, d_B, n, &beta, d_C, n);
+    cublasSgeam(handle, CUBLAS_OP_T, CUBLAS_OP_N, n, n, &alpha, d_C, n, &beta, nullptr, n, d_CT, n);
+    cublasGetMatrix(n, n, sizeof(float), d_CT, n, c.data(), n);
 
-    std::vector<float> cT(n * n);
-    cudaMemcpy(cT.data(), d_C, size, cudaMemcpyDeviceToHost);
-
-    std::vector<float> result(n * n);
-    transpose(cT, result, n);
+    cublasDestroy(handle);
 
     cudaFree(d_A);
     cudaFree(d_B);
     cudaFree(d_C);
-    cublasDestroy(handle);
+    cudaFree(d_CT);
 
-    return result;
+    return c;
 }
