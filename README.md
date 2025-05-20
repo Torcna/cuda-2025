@@ -486,6 +486,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|sedova_olga|0.7912|10|
 |**REF**|**REF**|**0.8370**|**-**|
 |3822B1FI1|korobeinikov_arseny|TEST FAILED|-|
+|3822B1FI1|beresnev_a|BUILD FAILED|-|
 
 ## 2_gelu_cuda (134217728 elements)
 |Group|Name|Result|Rank|
@@ -498,6 +499,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|rezantseva_anastasia|0.2835|8|
 |3822B1FI1|mironov_arseniy|0.3005|3|
 |3822B1FI1|ivanov_mikhail|0.3187|11|
+|3822B1FI1|beresnev_a|0.3209|14|
 |3822B1FI1|suvorov_dmitrii|0.3294|13|
 |3822B1FI1|drozhdinov_dmitriy|0.3412|4|
 |3822B1FI1|grudzin_konstantin|0.3438|5|
@@ -522,6 +524,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|korobeinikov_arseny|0.7521|14|
 |3822B1FI1|drozhdinov_dmitriy|0.7571|4|
 |3822B1FI1|suvorov_dmitrii|0.7855|12|
+|3822B1FI1|beresnev_a|0.7924|15|
 |3822B1FI1|sedova_olga|0.8058|10|
 |**REF**|**REF**|**0.8283**|**-**|
 
@@ -541,6 +544,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|drozhdinov_dmitriy|0.2398|4|
 |3822B1FI1|korobeinikov_arseny|0.3409|14|
 |**REF**|**REF**|**0.3438**|**-**|
+|3822B1FI1|beresnev_a|0.4480|15|
 |3822B1FI1|ivanov_mikhail|0.5037|10|
 |3822B1FI1|kurakin_matvey|0.5978|1|
 
@@ -559,6 +563,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |**REF**|**REF**|**0.1575**|**-**|
 |3822B1FI1|sedova_olga|0.1717|9|
 |3822B1FI1|grudzin_konstantin|0.2033|6|
+|3822B1FI1|beresnev_a|0.2605|15|
 |3822B1FI1|savchenko_maxim|0.2630|13|
 |3822B1FI1|beskhmelnova_kseniya|0.2720|3|
 |3822B1FI1|drozhdinov_dmitriy|0.3107|4|
@@ -575,6 +580,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|kurakin_matvey|0.1545|5|
 |3822B1FI1|suvorov_dmitrii|0.1547|11|
 |3822B1FI1|drozhdinov_dmitriy|0.1555|4|
+|3822B1FI1|beresnev_a|0.1558|15|
 |3822B1FI1|kabalova_valeria|0.1675|12|
 |3822B1FI1|rezantseva_anastasia|0.1678|8|
 |3822B1FI1|ivanov_mikhail|0.2574|10|
@@ -600,6 +606,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|savchenko_maxim|0.1011|12|
 |3822B1FI1|sedova_olga|BUILD FAILED|-|
 |3822B1FI1|suvorov_dmitrii|TOO SLOW|-|
+|3822B1FI1|beresnev_a|TEST FAILED|-|
 
 ## 8_fft_cufft (131072 elements)
 |Group|Name|Result|Rank|
@@ -614,6 +621,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|chistov_alexey|0.1753|5|
 |3822B1FI1|kabalova_valeria|0.1805|12|
 |3822B1FI1|kurakin_matvey|0.1888|7|
+|3822B1FI1|beresenv_a|0.1916|15|
 |3822B1FI1|ivanov_mikhail|0.1938|11|
 |3822B1FI1|drozhdinov_dmitriy|0.1974|1|
 |3822B1FI1|sedova_olga|0.2395|9|
@@ -638,25 +646,28 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 |3822B1FI1|sedova_olga|0.5520|8|
 |3822B1FI1|kabalova_valeria|BUILD FAILED|-|
 |3822B1FI1|baranov_aleksey|TEST FAILED|-|
+|3822B1FI1|beresnev_a|BUILD FAILED|-|
 
 # Tasks Done
 ## 3822B1FI1
 |Group|Name|Passed|Score|
 |-----|----|------|-----|
-|3822B1FI1|baranov_aleksey|8/9|125|
-|3822B1FI1|beskhmelnova_kseniya|**9/9**|**159**|
-|3822B1FI1|chistov_alexey|**9/9**|**174**|
-|3822B1FI1|drozhdinov_dmitriy|**9/9**|**152**|
-|3822B1FI1|grudzin_konstantin|**9/9**|**175**|
-|3822B1FI1|ivanov_mikhail|**9/9**|**116**|
-|3822B1FI1|kabalova_valeria|8/9|115|
-|3822B1FI1|korobeinikov_arseny|7/9|60|
-|3822B1FI1|kurakin_matvey|**9/9**|**173**|
-|3822B1FI1|mironov_arseniy|**9/9**|**211**|
-|3822B1FI1|rezantseva_anastasia|**9/9**|**145**|
-|3822B1FI1|savchenko_maxim|**9/9**|**83**|
-|3822B1FI1|sedova_olga|8/9|85|
-|3822B1FI1|suvorov_dmitrii|8/9|101|
+|3822B1FI1|baranov_aleksey|8/9|156|
+|3822B1FI1|beresenv_a|1/9|8|
+|3822B1FI1|beresnev_a|5/9|40|
+|3822B1FI1|beskhmelnova_kseniya|**9/9**|**192**|
+|3822B1FI1|chistov_alexey|**9/9**|**210**|
+|3822B1FI1|drozhdinov_dmitriy|**9/9**|**185**|
+|3822B1FI1|grudzin_konstantin|**9/9**|**210**|
+|3822B1FI1|ivanov_mikhail|**9/9**|**149**|
+|3822B1FI1|kabalova_valeria|8/9|146|
+|3822B1FI1|korobeinikov_arseny|7/9|87|
+|3822B1FI1|kurakin_matvey|**9/9**|**208**|
+|3822B1FI1|mironov_arseniy|**9/9**|**247**|
+|3822B1FI1|rezantseva_anastasia|**9/9**|**180**|
+|3822B1FI1|savchenko_maxim|**9/9**|**116**|
+|3822B1FI1|sedova_olga|8/9|114|
+|3822B1FI1|suvorov_dmitrii|8/9|132|
 
 Passed: 9
 

@@ -1,0 +1,5 @@
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/1_gelu_omp/beresnev_a/gelu_omp.cpp: In function ‘AlignedVector GeluOMP(const AlignedVector&)’:
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/1_gelu_omp/beresnev_a/gelu_omp.cpp:11:45: error: ‘tanhf’ is not a member of ‘std’; did you mean ‘tanh’?
+   11 |         output[i] = 0.5f * x * (1.0f + std::tanhf(std::sqrt(2.0f / M_PI) * (x + 0.044715f * x * x * x)));
+      |                                             ^~~~~
+      |                                             tanh
