@@ -68,7 +68,7 @@ std::vector<float> GeluOCL(const std::vector<float> &input)
             int i = get_global_id(0);
             if (i < n) {
                 float x = input[i];
-                const float sqrt2_div_pi = 0.7978845608028654f;
+                const float sqrt2_div_pi = 0.7978845f;
                 float t = tanh(sqrt2_div_pi * (x + 0.044715f * x * x * x));
                 output[i] = 0.5f * x * (1.0f + t);
             }
