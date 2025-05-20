@@ -4,25 +4,25 @@
 #include <stdexcept>
 #include <iostream>
 
-#define CUDA_CHECK(call)                                                    
-    do {                                                                    
-        cudaError_t err = call;                                             
-        if (err != cudaSuccess) {                                           
-            std::cerr << "CUDA error in " << __FILE__ << ":" << __LINE__    
-                      << ", code: " << err << ", reason: "                  
-                      << cudaGetErrorString(err) << std::endl;              
-            throw std::runtime_error("CUDA call failed");                   
-        }                                                                   
+#define CUDA_CHECK(call)                                                    \
+    do {                                                                    \
+        cudaError_t err = call;                                             \
+        if (err != cudaSuccess) {                                           \
+            std::cerr << "CUDA error in " << __FILE__ << ":" << __LINE__    \
+                      << ", code: " << err << ", reason: "                  \
+                      << cudaGetErrorString(err) << std::endl;              \
+            throw std::runtime_error("CUDA call failed");                   \
+        }                                                                   \
     } while (0)
 
-#define CUBLAS_CHECK(call)                                                  
-    do {                                                                    
-        cublasStatus_t status = call;                                       
-        if (status != CUBLAS_STATUS_SUCCESS) {                             
-            std::cerr << "cuBLAS error in " << __FILE__ << ":" << __LINE__ 
-                      << ", code: " << status << std::endl;                 
-            throw std::runtime_error("cuBLAS call failed");                 
-        }                                                                   
+#define CUBLAS_CHECK(call)                                                  \
+    do {                                                                    \
+        cublasStatus_t status = call;                                       \
+        if (status != CUBLAS_STATUS_SUCCESS) {                             \
+            std::cerr << "cuBLAS error in " << __FILE__ << ":" << __LINE__  \
+                      << ", code: " << status << std::endl;                 \
+            throw std::runtime_error("cuBLAS call failed");                 \
+        }                                                                   \
     } while (0)
 
 std::vector<float> GemmCUBLAS(const std::vector<float>& a,
@@ -53,8 +53,8 @@ std::vector<float> GemmCUBLAS(const std::vector<float>& a,
                              CUBLAS_OP_T, CUBLAS_OP_T,
                              n, n, n,
                              &alpha,
-                             d_b, n,
                              d_a, n,
+                             d_b, n,
                              &beta,
                              d_c, n));
 
@@ -63,7 +63,7 @@ std::vector<float> GemmCUBLAS(const std::vector<float>& a,
                              n, n, &alpha,
                              d_c, n,
                              &beta,
-                             d_a, n,
+                             nullptr, n,
                              d_ct, n));
 
 
@@ -72,8 +72,7 @@ std::vector<float> GemmCUBLAS(const std::vector<float>& a,
     CUDA_CHECK(cudaFree(d_a));
     CUDA_CHECK(cudaFree(d_b));
     CUDA_CHECK(cudaFree(d_c));
-     CUDA_CHECK(cudaFree(d_ct));
+    CUDA_CHECK(cudaFree(d_ct));
     CUBLAS_CHECK(cublasDestroy(handle));
-
     return c;
 }
