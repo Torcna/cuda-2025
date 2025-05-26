@@ -1,5 +1,6 @@
 #include "gelu_ocl.h"
 #include <CL/cl.h>
+#include <cstring>
 
 const char* source =
 "__kernel void kernel(__global const float* input, __global float* result, const int n) { \n"\
@@ -36,7 +37,7 @@ std::vector<float> GeluOCL(const std::vector<float>& input) {
 
   cl_command_queue queue;
   cl_queue_properties properties[] = {CL_QUEUE_PROPERTIES, 0, 0};
-  queue = clCreateCommandQueue(context, device, properties, nullptr);
+  queue = clCreateCommandQueueWithProperties(context, device, properties, nullptr);
 
   cl_mem in, out;
   in = clCreateBuffer(context, CL_MEM_READ_ONLY, input.size() * sizeof(float), nullptr, nullptr);
