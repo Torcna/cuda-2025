@@ -1,1 +1,3 @@
+Stderr:
 2 errors generated.
+

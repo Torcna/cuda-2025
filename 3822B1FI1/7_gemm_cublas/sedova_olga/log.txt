@@ -1,21 +1,25 @@
-/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(61): error: argument of type "const float *" is incompatible with parameter of type "int"
-       do { cublasStatus_t status = cublasSgemm_v2(handle, CUBLAS_OP_T, CUBLAS_OP_N, n, n, &alpha, d_c, n, &beta, nullptr, n, d_ct, n); if (status != CUBLAS_STATUS_SUCCESS) { std::cerr << "cuBLAS error in " << "/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu" << ":" << 61 << ", code: " << status << std::endl; throw std::runtime_error("cuBLAS call failed"); } } while (0)
-                                                                                           ^
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(42): error: argument of type "const float *" is incompatible with parameter of type "int"
+                  n, n, &alpha,
+                        ^
 
-/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(61): error: argument of type "int" is incompatible with parameter of type "const float *"
-       do { cublasStatus_t status = cublasSgemm_v2(handle, CUBLAS_OP_T, CUBLAS_OP_N, n, n, &alpha, d_c, n, &beta, nullptr, n, d_ct, n); if (status != CUBLAS_STATUS_SUCCESS) { std::cerr << "cuBLAS error in " << "/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu" << ":" << 61 << ", code: " << status << std::endl; throw std::runtime_error("cuBLAS call failed"); } } while (0)
-                                                                                                        ^
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(43): error: argument of type "int" is incompatible with parameter of type "const float *"
+                  d_c, n,
+                       ^
 
-/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(61): error: argument of type "const float *" is incompatible with parameter of type "int"
-       do { cublasStatus_t status = cublasSgemm_v2(handle, CUBLAS_OP_T, CUBLAS_OP_N, n, n, &alpha, d_c, n, &beta, nullptr, n, d_ct, n); if (status != CUBLAS_STATUS_SUCCESS) { std::cerr << "cuBLAS error in " << "/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu" << ":" << 61 << ", code: " << status << std::endl; throw std::runtime_error("cuBLAS call failed"); } } while (0)
-                                                                                                           ^
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(44): error: argument of type "const float *" is incompatible with parameter of type "int"
+                  &beta,
+                  ^
 
-/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(61): error: argument of type "int" is incompatible with parameter of type "float *"
-       do { cublasStatus_t status = cublasSgemm_v2(handle, CUBLAS_OP_T, CUBLAS_OP_N, n, n, &alpha, d_c, n, &beta, nullptr, n, d_ct, n); if (status != CUBLAS_STATUS_SUCCESS) { std::cerr << "cuBLAS error in " << "/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu" << ":" << 61 << ", code: " << status << std::endl; throw std::runtime_error("cuBLAS call failed"); } } while (0)
-                                                                                                                                    ^
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(46): error: argument of type "int" is incompatible with parameter of type "float *"
+                  d_ct, n);
+                        ^
 
-/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(61): error: too few arguments in function call
-       do { cublasStatus_t status = cublasSgemm_v2(handle, CUBLAS_OP_T, CUBLAS_OP_N, n, n, &alpha, d_c, n, &beta, nullptr, n, d_ct, n); if (status != CUBLAS_STATUS_SUCCESS) { std::cerr << "cuBLAS error in " << "/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu" << ":" << 61 << ", code: " << status << std::endl; throw std::runtime_error("cuBLAS call failed"); } } while (0)
-                                                                                                                                     ^
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(46): error: too few arguments in function call
+                  d_ct, n);
+                         ^
 
-5 errors detected in the compilation of "/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu".
+/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu(48): error: expected a ";"
+      cublasGetMatrix(n, n, sizeof(float), d_ct, n, c.data(), n));
+                                                                ^
+
+6 errors detected in the compilation of "/home/crazyproger/sandbox/cuda-2025/3822B1FI1/7_gemm_cublas/sedova_olga/gemm_cublas.cu".
